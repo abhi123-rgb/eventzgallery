@@ -1,24 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Construction, Sparkles, Send, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
 import UnderConstruction from "./assets/under_construction.png";
 
 function App() {
-  const [email, setEmail] = useState('');
-  const [notifyStatus, setNotifyStatus] = useState('idle'); // idle, loading, success
-
-  const handleNotify = (e) => {
-    e.preventDefault();
-    if (!email) return;
-    setNotifyStatus('loading');
-    // Simulate API call
-    setTimeout(() => {
-      setNotifyStatus('success');
-      setEmail('');
-    }, 1500);
-  };
 
   return (
-    <div className="min-h-screen bg-slate-900 overflow-hidden relative selection:bg-pink-500 selection:text-white">
+    <div className="min-h-screen  bg-slate-900 overflow-hidden relative selection:bg-pink-500 selection:text-white">
       {/* Dynamic Background */ }
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
@@ -39,7 +26,7 @@ function App() {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold bg-clip-text text-transparent bg-linear-to-r from-pink-300 via-purple-300 to-indigo-400 mb-4 tracking-tight">
+          <h1 className="font-Poppins text-5xl md:text-6xl font-semibold bg-clip-text text-transparent bg-linear-to-r from-pink-300 via-purple-300 to-indigo-400 mb-4 tracking-tight">
             Coming Soon
           </h1>
 
