@@ -1,6 +1,5 @@
 import React from 'react';
 import { Construction, Sparkles, Send, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
-import UnderConstruction from "./assets/under_construction.png";
 
 function App() {
 
