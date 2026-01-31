@@ -1,5 +1,28 @@
 @import "tailwindcss";
 
+:root {
+  --primary-light: #f0f0f0; /* Light background color */
+  --secondary-light: #ffffff; /* White for contrast */
+  --text-light: #333333; /* Dark gray for text */
+
+  --primary-dark: #242424; /* Dark gray for text */
+  --secondary-dark: #0a0a0b; /* Dark gray for text */
+  --text-dark: #ffffff; /* Dark gray for text */
+
+  font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  /* color: rgba(255, 255, 255, 0.87);
+  background-color: #242424; */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
 @theme {
   --animate-blob: blob 7s infinite;
 
@@ -17,21 +40,6 @@
       transform: translate(0px, 0px) scale(1);
     }
   }
-}
-
-:root {
-  font-family: Poppins, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 @font-face {

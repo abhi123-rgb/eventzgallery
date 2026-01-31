@@ -25,8 +25,12 @@ const Footer = () => {
 
     const services = ['Wedding Planning', 'Corporate Events', 'Social Gatherings', 'Photography', 'Decor & Design'];
 
+    const handleScrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     return (
-        <footer className="relative mt-20 pt-16 pb-8 overflow-hidden bg-[#0A0A0B]">
+        <footer className="relative pt-16 pb-8 overflow-hidden bg-(--secondary-dark)">
             {/* Background Decorative Elements */ }
             <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] -z-10" />
             <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px] -z-10" />
@@ -66,6 +70,7 @@ const Footer = () => {
                                 <li key={ link.path }>
                                     <Link
                                         to={ link.path }
+                                        onClick={ handleScrollToTop }
                                         className="text-white/50 hover:text-white transition-colors text-sm flex items-center gap-2 group"
                                     >
                                         { link.name }
@@ -99,7 +104,7 @@ const Footer = () => {
                             </li>
                             <li className="flex items-center gap-3 text-white/50 text-sm">
                                 <FaPhoneAlt className="text-white/70" />
-                                <span>+1 (234) 567-890</span>
+                                <span>+91 76764 17117</span>
                             </li>
                             <li className="flex items-center gap-3 text-white/50 text-sm">
                                 <FaEnvelope className="text-white/70" />
@@ -114,10 +119,10 @@ const Footer = () => {
                     <p className="text-white/40 text-xs">
                         © { currentYear } EventzGallery. All rights reserved.
                     </p>
-                    <div className="flex gap-8 text-xs text-white/40">
+                    {/* <div className="flex gap-8 text-xs text-white/40">
                         <span className="hover:text-white cursor-pointer transition-colors">Privacy Policy</span>
                         <span className="hover:text-white cursor-pointer transition-colors">Terms of Service</span>
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </footer>
