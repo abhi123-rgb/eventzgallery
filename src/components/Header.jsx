@@ -34,10 +34,10 @@ const Header = () => {
                 hidden: { y: -100, opacity: 0 },
             } }
             transition={ { duration: 0.6, ease: [0.23, 1, 0.32, 1] } }
-            className="fixed top-3 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
+            className="fixed top-2 left-0 right-0 z-50 flex justify-center px-4 pointer-events-none"
         >
             <motion.div
-                className='pointer-events-auto flex items-center gap-x-12 p-1.5 rounded-full backdrop-blur-xl border border-white/50 shadow-[0_8px_32px_0_rgba(31,38,135,0.15)] ring-1 ring-white/10 relative overflow-hidden'
+                className='pointer-events-auto flex items-center gap-x-12 py-1 px-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-lg shadow-lg relative overflow-hidden'
             >
                 {/* Glossy Reflection Overlay */ }
                 <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent pointer-none" />
@@ -61,7 +61,7 @@ const Header = () => {
                                 to={ link.path }
                                 className={ `relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
                                     ? 'text-white'
-                                    : 'text-white/70 hover:text-white hover:bg-white/5'
+                                    : 'text-white/90 hover:text-white hover:bg-white/10'
                                     }` }
                             >
                                 { isActive && (
