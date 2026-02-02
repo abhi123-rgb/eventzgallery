@@ -40,21 +40,22 @@ const Header = () => {
                     hidden: { y: -100, opacity: 0 },
                 } }
                 transition={ { duration: 0.6, ease: [0.23, 1, 0.32, 1] } }
-                className="fixed top-0 md:top-2 left-0 right-0 z-50 flex justify-center md:px-4 pointer-events-none"
+                className="fixed top-4 left-0 right-0 z-50 flex justify-center md:px-4 pointer-events-none"
             >
                 <motion.div
-                    className='pointer-events-auto flex items-center justify-between gap-x-12 py-2 md:py-1 px-4 md:px-2 rounded-none md:rounded-full bg-white/5 border-b md:border border-white/10 backdrop-blur-lg shadow-lg relative overflow-hidden w-full md:max-w-[600px]'
+                    className='pointer-events-auto flex items-center justify-between gap-x-16 py-1 px-2 mx-2 md:mx-0 rounded-full bg-white/1 border border-white/20 backdrop-blur-lg shadow-lg relative overflow-hidden w-full md:max-w-[750px]'
                 >
                     {/* Glossy Reflection Overlay */ }
-                    <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent pointer-none" />
+                    <div className="absolute inset-0 bg-linear-to-tr from-white/1 to-transparent pointer-none" />
 
                     <Link to="/home" className='flex items-center group relative z-10'>
-                        <div className="relative">
+                        <div className="relative flex items-center gap-x-2">
                             <img
                                 src={ logo }
                                 alt="logo"
                                 className='w-9 h-9 rounded-full object-cover border border-white/20 group-hover:scale-105 transition-transform duration-300 shadow-sm'
                             />
+                            <p className='text-white md:text-sm font-semibold'>EventzGallery</p>
                         </div>
                     </Link>
 

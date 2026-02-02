@@ -35,10 +35,10 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         }
     }
 
-    const itemVariants = {
-        closed: { opacity: 0, x: 20 },
-        open: { opacity: 1, x: 0 }
-    }
+    // const itemVariants = {
+    //     closed: { opacity: 0, x: 20 },
+    //     open: { opacity: 1, x: 0 }
+    // }
 
     return (
         <AnimatePresence>
@@ -80,7 +80,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                                     const isActive = location.pathname === link.path
                                     const Icon = link.icon
                                     return (
-                                        <motion.div key={ link.path } variants={ itemVariants }>
+                                        <motion.div key={ link.path }>
                                             <Link
                                                 to={ link.path }
                                                 onClick={ () => setIsOpen(false) }
