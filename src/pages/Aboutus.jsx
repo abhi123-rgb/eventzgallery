@@ -2,7 +2,7 @@ import React from 'react'
 
 const Aboutus = () => {
     return (
-        <div className='flex items-center justify-center text-2xl font-medium bg-(--primary-dark) text-(--text-dark)'>Aboutus</div>
+        <div className='h-screen flex items-center justify-center text-2xl font-medium bg-(--primary-dark) text-(--text-dark)'>Aboutus</div>
     )
 }
 

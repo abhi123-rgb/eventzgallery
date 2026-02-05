@@ -202,7 +202,7 @@ const Testimonials = () => {
                                                 </div>
                                                 <div>
                                                     <h4 className="text-white font-bold text-lg">{ testimonial.name }</h4>
-                                                    <p className="text-indigo-200/60 text-sm">{ testimonial.role }</p>
+                                                    {/* <p className="text-indigo-200/60 text-sm">{ testimonial.role }</p> */ }
                                                 </div>
                                             </div>
                                         </div>

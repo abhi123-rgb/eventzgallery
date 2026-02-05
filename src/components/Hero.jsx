@@ -79,9 +79,6 @@ const Hero = () => {
             {/* Hero Bottom Decor */ }
             <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-[#0a0a0b] to-transparent z-20 pointer-events-none" />
 
-            {/* Decorative Floating Blobs */ }
-            <div className="absolute top-1/4 left-10 w-2 h-2 rounded-full bg-indigo-500 blur-sm animate-ping opacity-50" />
-            <div className="absolute bottom-1/3 right-10 w-3 h-3 rounded-full bg-pink-500 blur-sm animate-bounce opacity-50" />
         </section>
     );
 };
