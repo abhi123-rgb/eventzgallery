@@ -121,7 +121,7 @@ const Testimonials = () => {
                     </motion.span>
 
                     <motion.h2
-                        className="text-2xl md:text-3xl lg:text-5xl font-black text-white mb-6 tracking-tight"
+                        className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-3 tracking-tight"
                         variants={ titleVariants }
                     >
                         What Our <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">Clients Say</span>
@@ -145,7 +145,7 @@ const Testimonials = () => {
                     </button>
 
                     {/* Viewport */ }
-                    <div className="overflow-hidden px-2">
+                    <div className="overflow-hidden">
                         <motion.div
                             className="flex gap-6 md:gap-8"
                             initial={ false }
@@ -173,12 +173,12 @@ const Testimonials = () => {
                                     key={ testimonial.id }
                                     className="w-full md:w-1/2 shrink-0 px-3 md:px-4" // Use padding for gap simulation
                                 >
-                                    <div className="h-full p-8 rounded-3xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 relative group overflow-hidden">
+                                    <div className="h-full p-6 rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 relative group overflow-hidden">
                                         {/* Gradient Hover Effect */ }
                                         <div className="absolute inset-0 bg-linear-to-br from-indigo-500/0 via-purple-500/0 to-pink-500/0 group-hover:from-indigo-500/5 group-hover:via-purple-500/5 group-hover:to-pink-500/5 transition-all duration-500" />
 
                                         <div className="relative z-10">
-                                            <div className="flex justify-between items-start mb-6">
+                                            <div className="flex justify-between items-start mb-4">
                                                 <div className="p-3 rounded-xl bg-indigo-500/10 text-indigo-400">
                                                     <Quote className="w-6 h-6" />
                                                 </div>
@@ -192,7 +192,7 @@ const Testimonials = () => {
                                                 </div> */}
                                             </div>
 
-                                            <blockquote className="text-gray-300 text-lg leading-relaxed mb-8 min-h-[100px]">
+                                            <blockquote className="text-gray-300  leading-relaxed mb-4 min-h-25">
                                                 "{ testimonial.comment }"
                                             </blockquote>
 

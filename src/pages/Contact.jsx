@@ -70,10 +70,10 @@ const Contact = () => {
                         animate={ { opacity: 1, y: 0 } }
                         transition={ { duration: 0.6 } }
                     >
-                        <h1 className="text-3xl md:text-4xl font-bold mb-2 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+                        <h1 className="text-3xl md:text-4xl font-semibold mb-2 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                             Get in Touch
                         </h1>
-                        <p className="text-gray-400 text-base mx-2 md:text-lg">
+                        <p className="text-gray-400 text-base mx-2">
                             We'd love to hear from you. Let's start something great.
                         </p>
                     </motion.div>
@@ -83,10 +83,10 @@ const Contact = () => {
                     initial={ { opacity: 0, y: 30 } }
                     animate={ { opacity: 1, y: 0 } }
                     transition={ { duration: 0.8, delay: 0.2 } }
-                    className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-5"
+                    className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-w-5xl m-auto grid grid-cols-1 lg:grid-cols-5"
                 >
                     {/* Left: Contact Form (3 columns on LG) */ }
-                    <div className="lg:col-span-3 p-6 md:p-10 relative">
+                    <div className="lg:col-span-3 p-6 md:p-8 relative">
                         { submitted && (
                             <motion.div
                                 initial={ { opacity: 0 } }
@@ -103,7 +103,7 @@ const Contact = () => {
                             </motion.div>
                         ) }
 
-                        <form onSubmit={ handleSubmit } className="space-y-6">
+                        <form onSubmit={ handleSubmit } className="space-y-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-4">
                                     <label className="text-sm font-medium text-gray-400 ml-1">Name</label>
@@ -116,7 +116,7 @@ const Contact = () => {
                                             value={ formData.name }
                                             onChange={ handleChange }
                                             placeholder="Your name"
-                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-xl py-4 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
+                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
                                         />
                                     </div>
                                 </div>
@@ -131,7 +131,7 @@ const Contact = () => {
                                             value={ formData.email }
                                             onChange={ handleChange }
                                             placeholder="hello@example.com"
-                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-xl py-4 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
+                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
                                         />
                                     </div>
                                 </div>
@@ -147,7 +147,7 @@ const Contact = () => {
                                         value={ formData.phone }
                                         onChange={ handleChange }
                                         placeholder="+91 00000 00000"
-                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-xl py-4 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
+                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
                                     />
                                 </div>
                             </div>
@@ -163,7 +163,7 @@ const Contact = () => {
                                         onChange={ handleChange }
                                         rows="4"
                                         placeholder="Tell us about your event..."
-                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-xl py-4 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500 resize-none"
+                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500 resize-none"
                                     ></textarea>
                                 </div>
                             </div>
@@ -171,7 +171,7 @@ const Contact = () => {
                             <button
                                 type="submit"
                                 disabled={ isSubmitting }
-                                className="w-full bg-linear-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-bold py-5 rounded-xl transition-all duration-300 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed group"
+                                className="w-full bg-linear-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-medium py-3 rounded-lg transition-all duration-300 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed group"
                             >
                                 { isSubmitting ? (
                                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>
@@ -186,10 +186,10 @@ const Contact = () => {
                     </div>
 
                     {/* Right: Contact Info (2 columns on LG) */ }
-                    <div className="lg:col-span-2 bg-linear-to-br from-blue-600/20 to-indigo-600/20 p-6 md:p-12 border-l border-white/10 flex flex-col justify-between">
+                    <div className="lg:col-span-2 bg-linear-to-br from-blue-600/20 to-indigo-600/20 p-6 md:p-8 border-l border-white/10 flex flex-col justify-between">
                         <div className="space-y-10">
                             <div>
-                                <h3 className="text-2xl font-semibold mb-6">Contact Information</h3>
+                                <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
                                 <div className="space-y-6">
                                     { contactInfo.map((info, index) => (
                                         <div key={ index } className="flex items-center gap-4 group">

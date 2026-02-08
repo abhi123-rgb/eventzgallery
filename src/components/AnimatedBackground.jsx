@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Wine, MicVocal, Music, Speaker, PartyPopper } from 'lucide-react'
 
 const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
     // Existing color blobs (kept as subtle underlay)
@@ -36,78 +37,87 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
         },
     ];
 
-    // New floating geometric shapes
+    // Event-related floating icons (wine glass, gift, music note, microphone)
     const floatingShapes = [
-        // Background Shapes (z-0)
         {
-            type: "circle",
+            key: 'wine',
+            Icon: Wine,
             width: 100,
             height: 100,
-            initial: { left: "10%", top: "15%", opacity: 0 },
+            initial: { left: '8%', top: '18%', opacity: 0 },
             animate: {
-                y: [-20, 20, -20],
-                x: [-10, 10, -10],
-                opacity: [0.5, 0.8, 0.5],
-                rotate: [0, 360],
+                y: [-18, 18, -18],
+                x: [-8, 8, -8],
+                opacity: [0.5, 0.9, 0.5],
+                rotate: [0, 15, -8, 0]
             },
-            duration: 15,
-            zIndex: 0
+            duration: 16,
+            zIndex: 10,
+            color: 'rgba(255,255,255,0.9)'
         },
         {
-            type: "square",
-            width: 80,
-            height: 80,
-            initial: { right: "15%", top: "10%", opacity: 0 },
+            key: 'Speaker',
+            Icon: Speaker,
+            width: 110,
+            height: 90,
+            initial: { right: '14%', top: '12%', opacity: 0 },
             animate: {
-                y: [20, -20, 20],
+                y: [16, -16, 16],
                 x: [10, -10, 10],
-                opacity: [0.5, 0.7, 0.5],
-                rotate: [0, -180],
+                opacity: [0.45, 0.85, 0.45],
+                rotate: [0, -10, 6, 0]
+            },
+            duration: 20,
+            zIndex: 8,
+            color: 'rgba(255,240,230,0.95)'
+        },
+        {
+            key: 'music',
+            Icon: Music,
+            width: 80,
+            height: 120,
+            initial: { left: '45%', top: '20%', opacity: 0 },
+            animate: {
+                y: [-22, 22, -22],
+                x: [-6, 6, -6],
+                opacity: [0.55, 0.95, 0.55],
+                rotate: [0, 20, -12, 0]
+            },
+            duration: 14,
+            zIndex: 12,
+            color: 'rgba(200,240,255,0.95)'
+        },
+        {
+            key: 'mic',
+            Icon: MicVocal,
+            width: 100,
+            height: 100,
+            initial: { right: '6%', bottom: '10%', opacity: 0 },
+            animate: {
+                y: [-12, 12, -12],
+                x: [-12, 12, -12],
+                opacity: [0.5, 0.85, 0.5],
+                rotate: [0, -6, 6, 0]
             },
             duration: 18,
-            zIndex: 0
-        },
-        // Foreground Shapes (z-20 floating over content)
-        {
-            type: "circle",
-            width: 60,
-            height: 60,
-            initial: { right: "20%", bottom: "30%", opacity: 0 },
-            animate: {
-                y: [15, -15, 15],
-                x: [15, -15, 15],
-                opacity: [0.6, 0.9, 0.6],
-            },
-            duration: 12,
-            zIndex: 20
+            zIndex: 12,
+            color: 'rgba(255,230,250,0.95)'
         },
         {
-            type: "square",
-            width: 50,
-            height: 50,
-            initial: { left: "45%", top: "25%", opacity: 0 },
-            animate: {
-                y: [-25, 25, -25],
-                x: [-10, 10, -10],
-                opacity: [0.6, 0.9, 0.6],
-                rotate: [0, 90],
-            },
-            duration: 22,
-            zIndex: 20
-        },
-        {
-            type: "square",
+            key: 'PartyPopper',
+            Icon: PartyPopper,
             width: 90,
             height: 90,
-            initial: { right: "5%", bottom: "5%", opacity: 0 },
+            initial: { left: '16%', bottom: '18%', opacity: 0 },
             animate: {
-                y: [-20, 20, -20],
-                x: [-20, 20, -20],
-                opacity: [0.4, 0.7, 0.4],
-                rotate: [0, 180],
+                y: [-12, 12, -12],
+                x: [-12, 12, -12],
+                opacity: [0.5, 0.85, 0.5],
+                rotate: [0, 10, -6, 0]
             },
-            duration: 28,
-            zIndex: 0
+            duration: 18,
+            zIndex: 12,
+            color: 'rgba(255,230,250,0.95)'
         }
     ];
 
@@ -168,33 +178,30 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
                 <div className="absolute inset-0 bg-linear-to-b from-[#0a0a0b]/10 via-transparent to-[#0a0a0b]" />
             </div>
 
-            {/* Floating Geometric Shapes (Layered) */ }
-            { floatingShapes.map((shape, index) => (
+            {/* Floating Event Icons (Layered) */ }
+            { floatingShapes.map((shape) => (
                 <motion.div
-                    key={ `shape-${index}` }
+                    key={ `shape-${shape.key}` }
                     initial={ shape.initial }
                     animate={ shape.animate }
                     transition={ {
                         duration: shape.duration / speed,
                         repeat: Infinity,
-                        ease: "easeInOut",
+                        ease: 'easeInOut'
                     } }
-                    className={ `absolute border border-white/20 backdrop-blur-lg shadow-lg pointer-events-none ${shape.type === 'circle' ? 'rounded-full' :
-                        shape.type === 'square' ? 'rounded-2xl' :
-                            shape.type === 'rectangle' ? 'rounded-lg' : ''
-                        }` }
+                    className={ `absolute pointer-events-none flex items-center justify-center` }
                     style={ {
                         ...shape.initial,
                         width: shape.width,
                         height: shape.height,
                         zIndex: shape.zIndex,
-                        background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 50%, rgba(147,51,234,0.1) 100%)',
-                        boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.37), inset 0 1px 1px rgba(255,255,255,0.2)',
-                        backdropFilter: 'blur(10px) saturate(180%)',
-                        WebkitBackdropFilter: 'blur(10px) saturate(180%)',
-                        border: '1px solid rgba(255,255,255,0.25)'
+                        transformOrigin: 'center',
+                        willChange: 'transform, opacity'
                     } }
-                />
+                >
+                    {/* Render lucide icon component for consistency */ }
+                    { shape.Icon && React.createElement(shape.Icon, { size: Math.round(Math.min(shape.width, shape.height) * 0.6), color: shape.color, strokeWidth: '1.2px' }) }
+                </motion.div>
             )) }
         </div>
     );

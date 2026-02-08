@@ -143,14 +143,14 @@ const WhatWeDo = () => {
                     </motion.span>
 
                     <motion.h2
-                        className="text-2xl md:text-3xl lg:text-5xl font-black text-white mb-6 tracking-tight"
+                        className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-4 tracking-tight"
                         variants={ titleVariants }
                     >
                         What We <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">Do</span>
                     </motion.h2>
 
                     <motion.p
-                        className="text-base text-gray-300 max-w-2xl mx-auto leading-relaxed font-light"
+                        className="text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed font-light"
                         variants={ titleVariants }
                     >
                         We offer comprehensive event services designed to bring your vision to life. From intimate gatherings to grand celebrations, our expert team delivers excellence in every detail.
@@ -176,7 +176,7 @@ const WhatWeDo = () => {
                             >
                                 <div className="relative h-full rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
                                     {/* Image Container */ }
-                                    <div className="relative h-48 overflow-hidden bg-linear-to-br from-gray-700 to-gray-900">
+                                    <div className="relative h-52 overflow-hidden bg-linear-to-br from-gray-700 to-gray-900">
                                         <img
                                             src={ service.image }
                                             alt={ service.title }
@@ -192,12 +192,12 @@ const WhatWeDo = () => {
                                     </div>
 
                                     {/* Content Container */ }
-                                    <div className="p-6">
-                                        <h3 className="text-xl font-bold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-indigo-400 group-hover:to-pink-500 transition-all duration-300">
+                                    <div className="p-5">
+                                        <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-indigo-400 group-hover:to-pink-500 transition-all duration-300">
                                             { service.title }
                                         </h3>
 
-                                        <p className="text-sm text-gray-300 leading-relaxed font-light mb-4 min-h-20">
+                                        <p className="text-sm text-gray-300 leading-relaxed font-light min-h-20">
                                             { service.description }
                                         </p>
 

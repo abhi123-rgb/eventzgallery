@@ -1,17 +1,47 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, Home, Briefcase, Settings, Phone, Info } from 'lucide-react'
-import { Link, useLocation } from 'react-router-dom'
 
 const Sidebar = ({ isOpen, setIsOpen }) => {
-    const location = useLocation()
+    const [activeSection, setActiveSection] = useState('home')
+
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId)
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' })
+            setActiveSection(sectionId)
+        }
+        setIsOpen(false)
+    }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const sections = ['home', 'ourwork', 'services', 'contact', 'aboutus']
+            let currentSection = 'home'
+
+            for (const sectionId of sections) {
+                const section = document.getElementById(sectionId)
+                if (section) {
+                    const rect = section.getBoundingClientRect()
+                    if (rect.top <= 100) {
+                        currentSection = sectionId
+                    }
+                }
+            }
+
+            setActiveSection(currentSection)
+        }
+
+        window.addEventListener('scroll', handleScroll)
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     const navLinks = [
-        { name: 'Home', path: '/home', icon: Home },
-        { name: 'Our Work', path: '/ourwork', icon: Briefcase },
-        { name: 'Services', path: '/services', icon: Settings },
-        { name: 'Contact', path: '/contact', icon: Phone },
-        { name: 'About Us', path: '/aboutus', icon: Info },
+        { name: 'Home', sectionId: 'home', icon: Home },
+        { name: 'Our Work', sectionId: 'ourwork', icon: Briefcase },
+        { name: 'Services', sectionId: 'services', icon: Settings },
+        { name: 'Contact', sectionId: 'contact', icon: Phone },
+        { name: 'About Us', sectionId: 'aboutus', icon: Info },
     ]
 
     const sidebarVariants = {
@@ -77,14 +107,13 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
                             <nav className="flex flex-col gap-y-2">
                                 { navLinks.map((link) => {
-                                    const isActive = location.pathname === link.path
+                                    const isActive = activeSection === link.sectionId
                                     const Icon = link.icon
                                     return (
-                                        <motion.div key={ link.path }>
-                                            <Link
-                                                to={ link.path }
-                                                onClick={ () => setIsOpen(false) }
-                                                className={ `group flex items-center gap-x-4 px-4 py-4 rounded-2xl transition-all duration-300 ${isActive
+                                        <motion.div key={ link.sectionId }>
+                                            <button
+                                                onClick={ () => scrollToSection(link.sectionId) }
+                                                className={ `group flex items-center gap-x-4 px-4 py-4 rounded-2xl transition-all duration-300 w-full ${isActive
                                                     ? 'bg-white/15 text-white shadow-[0_0_20px_rgba(255,255,255,0.05)]'
                                                     : 'text-white/70 hover:text-white hover:bg-white/5'
                                                     }` }
@@ -93,7 +122,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                                                     <Icon size={ 18 } />
                                                 </div>
                                                 <span className="font-medium">{ link.name }</span>
-                                            </Link>
+                                            </button>
                                         </motion.div>
                                     )
                                 }) }
