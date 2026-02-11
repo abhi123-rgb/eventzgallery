@@ -197,7 +197,7 @@ const WhatWeDo = () => {
                                             { service.title }
                                         </h3>
 
-                                        <p className="text-sm text-gray-300 leading-relaxed font-light min-h-20">
+                                        <p className="text-sm text-gray-500 leading-relaxed font-light min-h-20">
                                             { service.description }
                                         </p>
 

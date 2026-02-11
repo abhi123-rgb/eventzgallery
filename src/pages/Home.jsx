@@ -7,6 +7,8 @@ import { Mail, Phone, MapPin, Send, MessageSquare, User, Smartphone } from 'luci
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
 import Contact from './Contact'
+import AboutUs from '../components/AboutUs'
+import FAQ from '../components/FAQ'
 
 const Home = () => {
     const [formData, setFormData] = useState({
@@ -63,29 +65,28 @@ const Home = () => {
             {/* Home Section */ }
             <section id="home" className='min-h-screen'>
                 <Hero />
-                <WhatWeDo />
-                <Testimonials />
-            </section>
-
-            {/* Our Work Section */ }
-            <section id="ourwork" className='h-screen flex items-center justify-center text-2xl font-medium bg-[#0a0a0b] text-white'>
-                Our Work
-            </section>
-
-            {/* Services Section */ }
-            <section id="services" className='h-screen flex items-center justify-center text-2xl font-medium bg-[#0a0a0b] text-white'>
-                Services
-            </section>
-
-            {/* Contact Section */ }
-            <section id="contact" className="">
-                {/* Background Decorations */ }
-                <Contact />
             </section>
 
             {/* About Us Section */ }
-            <section id="aboutus" className='h-screen flex items-center justify-center text-2xl font-medium bg-[#0a0a0b] text-white'>
-                About Us
+            <section id="aboutus">
+                <AboutUs />
+            </section>
+
+            {/* Services Section */ }
+            <section id="services">
+                <WhatWeDo />
+            </section>
+
+            {/* Contact Section */ }
+            <section id="contact">
+                <Contact />
+            </section>
+
+            <Testimonials />
+
+            {/* FAQ Section */ }
+            <section id="faq">
+                <FAQ />
             </section>
         </div>
     )

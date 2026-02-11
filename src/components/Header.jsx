@@ -20,7 +20,7 @@ const Header = () => {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['home', 'ourwork', 'services', 'contact', 'aboutus']
+            const sections = ['home', 'aboutus', 'services', 'contact', 'faq']
             let currentSection = 'home'
 
             for (const sectionId of sections) {
@@ -42,10 +42,10 @@ const Header = () => {
 
     const navLinks = [
         { name: 'Home', sectionId: 'home' },
-        { name: 'Our Work', sectionId: 'ourwork' },
+        { name: 'About Us', sectionId: 'aboutus' },
         { name: 'Services', sectionId: 'services' },
         { name: 'Contact', sectionId: 'contact' },
-        { name: 'About Us', sectionId: 'aboutus' },
+        { name: 'FAQ', sectionId: 'faq' },
     ]
 
     return (

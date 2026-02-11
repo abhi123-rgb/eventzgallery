@@ -56,7 +56,7 @@ const Contact = () => {
     ];
 
     return (
-        <div className="bg-(--primary-dark) text-(--text-dark) py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden flex flex-col items-center">
+        <div className="bg-[#0a0a0b] text-(--text-dark) py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden flex flex-col items-center">
             {/* Background Decorations */ }
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-blob"></div>
@@ -70,8 +70,10 @@ const Contact = () => {
                         animate={ { opacity: 1, y: 0 } }
                         transition={ { duration: 0.6 } }
                     >
-                        <h1 className="text-3xl md:text-4xl font-semibold mb-2 bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
-                            Get in Touch
+                        <h1
+                            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-3 tracking-tight"
+                        >
+                            Get in <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">Touch</span>
                         </h1>
                         <p className="text-gray-400 text-base mx-2">
                             We'd love to hear from you. Let's start something great.
