@@ -130,7 +130,7 @@ const WhatWeDo = () => {
     };
 
     return (
-        <section className="relative py-14 px-6 lg:px-8 overflow-hidden bg-[#0a0a0b]">
+        <section className="relative py-14 px-6 lg:px-8 overflow-hidden bg-neutral-950">
             {/* Background Elements */ }
             <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl z-0" />
             <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl z-0" />
@@ -191,7 +191,7 @@ const WhatWeDo = () => {
                                             className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
                                             loading="lazy"
                                         />
-                                        <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0b] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
+                                        <div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
                                     </div>
 
                                     {/* Absolute icon relative to the outer card */ }

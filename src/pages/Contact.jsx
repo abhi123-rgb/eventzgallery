@@ -57,7 +57,7 @@ const Contact = () => {
     ];
 
     return (
-        <div className="bg-[#0a0a0b] text-(--text-dark) py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden flex flex-col items-center">
+        <div className="bg-neutral-950 text-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden flex flex-col items-center">
             {/* Background Decorations */ }
             <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                 <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-blob"></div>
@@ -101,7 +101,7 @@ const Contact = () => {
                             <motion.div
                                 initial={ { opacity: 0 } }
                                 animate={ { opacity: 1 } }
-                                className="absolute inset-0 z-20 flex items-center justify-center bg-(--primary-dark)/90 backdrop-blur-md"
+                                className="absolute inset-0 z-20 flex items-center justify-center bg-neutral-900/90 backdrop-blur-md"
                             >
                                 <div className="text-center p-6">
                                     <div className="w-16 h-16 bg-green-500/20 text-green-500 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -116,32 +116,34 @@ const Contact = () => {
                         <form onSubmit={ handleSubmit } className="space-y-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-4">
-                                    <label className="text-sm font-medium text-gray-400 ml-1">Name</label>
+                                    <label htmlFor="name" className="text-sm font-medium text-neutral-400 ml-1">Name</label>
                                     <div className="relative group">
-                                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 group-focus-within:text-blue-400 transition-colors" />
+                                        <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-blue-400 transition-colors" />
                                         <input
+                                            id="name"
                                             required
                                             type="text"
                                             name="name"
                                             value={ formData.name }
                                             onChange={ handleChange }
                                             placeholder="Your name"
-                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
+                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-neutral-500"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <label className="text-sm font-medium text-gray-400 ml-1">Email</label>
+                                    <label htmlFor="email" className="text-sm font-medium text-neutral-400 ml-1">Email</label>
                                     <div className="relative group">
-                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 group-focus-within:text-blue-400 transition-colors" />
+                                        <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-blue-400 transition-colors" />
                                         <input
+                                            id="email"
                                             required
                                             type="email"
                                             name="email"
                                             value={ formData.email }
                                             onChange={ handleChange }
                                             placeholder="hello@example.com"
-                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
+                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-neutral-500"
                                         />
                                     </div>
                                 </div>
@@ -149,35 +151,37 @@ const Contact = () => {
 
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-4">
-                                    <label className="text-sm font-medium text-gray-400 ml-1">Phone</label>
+                                    <label htmlFor="phone" className="text-sm font-medium text-neutral-400 ml-1">Phone</label>
                                     <div className="relative group">
-                                        <Smartphone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 group-focus-within:text-blue-400 transition-colors" />
+                                        <Smartphone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-neutral-500 group-focus-within:text-blue-400 transition-colors" />
                                         <input
+                                            id="phone"
                                             type="tel"
                                             name="phone"
                                             value={ formData.phone }
                                             onChange={ handleChange }
                                             placeholder="+91 00000 00000"
-                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
+                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-neutral-500"
                                         />
                                     </div>
                                 </div>
                                 <div className="space-y-4">
-                                    <label className="text-sm font-medium text-gray-400 ml-1">Event Type</label>
+                                    <label htmlFor="eventType" className="text-sm font-medium text-neutral-400 ml-1">Event Type</label>
                                     <div className="relative group">
                                         <select
+                                            id="eventType"
                                             name="eventType"
                                             value={ formData.eventType }
                                             onChange={ handleChange }
-                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 px-4 outline-none transition-all duration-300 appearance-none text-gray-300"
+                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 px-4 outline-none transition-all duration-300 appearance-none text-neutral-300"
                                         >
-                                            <option value="" className="bg-gray-900">Select Event Type</option>
-                                            <option value="wedding" className="bg-gray-900">Wedding Planning</option>
-                                            <option value="corporate" className="bg-gray-900">Corporate Event</option>
-                                            <option value="private" className="bg-gray-900">Private Party</option>
-                                            <option value="other" className="bg-gray-900">Other</option>
+                                            <option value="" className="bg-neutral-900">Select Event Type</option>
+                                            <option value="wedding" className="bg-neutral-900">Wedding Planning</option>
+                                            <option value="corporate" className="bg-neutral-900">Corporate Event</option>
+                                            <option value="private" className="bg-neutral-900">Private Party</option>
+                                            <option value="other" className="bg-neutral-900">Other</option>
                                         </select>
-                                        <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-blue-400">
+                                        <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-neutral-500 group-focus-within:text-blue-400">
                                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
                                         </div>
                                     </div>
@@ -185,30 +189,32 @@ const Contact = () => {
                             </div>
 
                             <div className="space-y-4">
-                                <label className="text-sm font-medium text-gray-400 ml-1">Event Date</label>
+                                <label htmlFor="eventDate" className="text-sm font-medium text-neutral-400 ml-1">Event Date</label>
                                 <div className="relative group">
                                     <input
+                                        id="eventDate"
                                         type="date"
                                         name="eventDate"
                                         value={ formData.eventDate }
                                         onChange={ handleChange }
-                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 px-4 outline-none transition-all duration-300 text-gray-300 [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert-[0.6] min-h-[50px] cursor-pointer"
+                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 px-4 outline-none transition-all duration-300 text-neutral-300 [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert-[0.6] min-h-[50px] cursor-pointer"
                                     />
                                 </div>
                             </div>
 
                             <div className="space-y-4">
-                                <label className="text-sm font-medium text-gray-400 ml-1">Message</label>
+                                <label htmlFor="message" className="text-sm font-medium text-neutral-400 ml-1">Message</label>
                                 <div className="relative group">
-                                    <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-gray-500 group-focus-within:text-blue-400 transition-colors" />
+                                    <MessageSquare className="absolute left-4 top-4 w-5 h-5 text-neutral-500 group-focus-within:text-blue-400 transition-colors" />
                                     <textarea
+                                        id="message"
                                         required
                                         name="message"
                                         value={ formData.message }
                                         onChange={ handleChange }
                                         rows="4"
                                         placeholder="Tell us about your event..."
-                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500 resize-none"
+                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-neutral-500 resize-none"
                                     ></textarea>
                                 </div>
                             </div>
@@ -216,7 +222,7 @@ const Contact = () => {
                             <button
                                 type="submit"
                                 disabled={ isSubmitting }
-                                className="w-full bg-linear-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white font-medium py-3 rounded-lg transition-all duration-300 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed group"
+                                className="w-full bg-linear-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 active:scale-[0.98] text-white font-medium py-3 rounded-lg transition-all duration-300 shadow-lg shadow-blue-500/25 flex items-center justify-center gap-3 disabled:opacity-70 disabled:cursor-not-allowed group"
                             >
                                 { isSubmitting ? (
                                     <div className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></div>

@@ -49,7 +49,6 @@ const Testimonials = () => {
     ];
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [direction, setDirection] = useState(0);
     const [itemsPerPage, setItemsPerPage] = useState(2);
 
     useEffect(() => {
@@ -69,22 +68,20 @@ const Testimonials = () => {
     const maxIndex = testimonials.length - itemsPerPage;
 
     const nextSlide = () => {
-        setDirection(1);
         setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
     };
 
     const prevSlide = () => {
-        setDirection(-1);
         setCurrentIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
     };
 
     // Auto-advance
     useEffect(() => {
         const timer = setInterval(() => {
-            nextSlide();
+            setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
         }, 5000);
         return () => clearInterval(timer);
-    }, [currentIndex, maxIndex]);
+    }, [maxIndex]);
 
     const titleVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -99,7 +96,7 @@ const Testimonials = () => {
     };
 
     return (
-        <section className="relative py-20 px-6 lg:px-8 overflow-hidden bg-[#0a0a0b]">
+        <section className="relative py-20 px-6 lg:px-8 overflow-hidden bg-neutral-950">
             {/* Background Elements */ }
             <div className="absolute top-1/2 left-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl z-0 -translate-y-1/2" />
             <div className="absolute top-1/2 right-0 w-96 h-96 bg-pink-500/5 rounded-full blur-3xl z-0 -translate-y-1/2" />
@@ -137,13 +134,15 @@ const Testimonials = () => {
                     {/* Buttons */ }
                     <button
                         onClick={ prevSlide }
-                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-20 p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all duration-300 hover:scale-110 backdrop-blur-md"
+                        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 z-20 p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all duration-300 hover:scale-110 active:scale-95 backdrop-blur-md"
+                        aria-label="Previous Testimonial"
                     >
                         <ChevronLeft className="w-6 h-6" />
                     </button>
                     <button
                         onClick={ nextSlide }
-                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-20 p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all duration-300 hover:scale-110 backdrop-blur-md"
+                        className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 z-20 p-3 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 text-white transition-all duration-300 hover:scale-110 active:scale-95 backdrop-blur-md"
+                        aria-label="Next Testimonial"
                     >
                         <ChevronRight className="w-6 h-6" />
                     </button>

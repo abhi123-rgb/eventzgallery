@@ -62,11 +62,11 @@ const Header = () => {
                     {/* Glossy Reflection Overlay */ }
                     <div className="absolute inset-0 bg-linear-to-tr from-white/1 to-transparent pointer-none" />
 
-                    <button onClick={ () => scrollToSection('home') } className='flex items-center group relative z-10 cursor-pointer bg-transparent border-0'>
+                    <button onClick={ () => scrollToSection('home') } className='flex items-center group relative z-10 cursor-pointer bg-transparent border-0 active:scale-95 transition-transform'>
                         <div className="relative flex items-center gap-x-2">
                             <img
                                 src={ logo }
-                                alt="logo"
+                                alt="EventzGallery Logo"
                                 className='w-9 h-9 rounded-full object-cover border border-white/20 group-hover:scale-105 transition-transform duration-300 shadow-sm'
                             />
                             <p className='text-white md:text-sm font-semibold'>EventzGallery</p>
@@ -76,8 +76,9 @@ const Header = () => {
                     { isMobile ? (
                         <div className='flex items-center gap-x-2 relative z-10'>
                             <button
-                                className='flex items-center gap-x-2 relative z-10 cursor-pointer p-2 rounded-full hover:bg-white/10 transition-colors'
+                                className='flex items-center gap-x-2 relative z-10 cursor-pointer p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all'
                                 onClick={ () => setIsSidebarOpen(!isSidebarOpen) }
+                                aria-label="Toggle Navigation Menu"
                             >
                                 <Menu size={ 22 } color="white" />
                             </button>
@@ -90,7 +91,7 @@ const Header = () => {
                                     <button
                                         key={ link.sectionId }
                                         onClick={ () => scrollToSection(link.sectionId) }
-                                        className={ `relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full ${isActive
+                                        className={ `relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full active:scale-95 ${isActive
                                             ? 'text-white'
                                             : 'text-white/90 hover:text-white hover:bg-white/10'
                                             }` }

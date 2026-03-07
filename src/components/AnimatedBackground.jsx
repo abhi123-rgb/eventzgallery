@@ -42,8 +42,7 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
         {
             key: 'wine',
             Icon: Wine,
-            width: 100,
-            height: 100,
+            containerClass: 'w-16 h-16 md:w-[100px] md:h-[100px]',
             initial: { left: '8%', top: '18%', opacity: 0 },
             animate: {
                 y: [-18, 18, -18],
@@ -58,8 +57,7 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
         {
             key: 'Speaker',
             Icon: Speaker,
-            width: 110,
-            height: 90,
+            containerClass: 'w-20 h-16 md:w-[110px] md:h-[90px]',
             initial: { right: '14%', top: '12%', opacity: 0 },
             animate: {
                 y: [16, -16, 16],
@@ -74,8 +72,7 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
         {
             key: 'music',
             Icon: Music,
-            width: 80,
-            height: 120,
+            containerClass: 'w-14 h-20 md:w-[80px] md:h-[120px]',
             initial: { left: '45%', top: '20%', opacity: 0 },
             animate: {
                 y: [-22, 22, -22],
@@ -90,8 +87,7 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
         {
             key: 'mic',
             Icon: MicVocal,
-            width: 100,
-            height: 100,
+            containerClass: 'w-16 h-16 md:w-[100px] md:h-[100px]',
             initial: { right: '6%', bottom: '10%', opacity: 0 },
             animate: {
                 y: [-12, 12, -12],
@@ -106,8 +102,7 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
         {
             key: 'PartyPopper',
             Icon: PartyPopper,
-            width: 90,
-            height: 90,
+            containerClass: 'w-14 h-14 md:w-[90px] md:h-[90px]',
             initial: { left: '16%', bottom: '18%', opacity: 0 },
             animate: {
                 y: [-12, 12, -12],
@@ -125,7 +120,7 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
             {/* Base Background Layer (z-0) */ }
             <div className="absolute inset-0 z-0">
-                <div className="absolute inset-0 bg-[#0a0a0b]" />
+                <div className="absolute inset-0 bg-neutral-950" />
 
                 {/* Hero Pattern - Grid with Mask */ }
                 <div
@@ -175,7 +170,7 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
                 />
 
                 {/* Gradient Fog / Vignette */ }
-                <div className="absolute inset-0 bg-linear-to-b from-[#0a0a0b]/10 via-transparent to-[#0a0a0b]" />
+                <div className="absolute inset-0 bg-linear-to-b from-neutral-950/10 via-transparent to-neutral-950" />
             </div>
 
             {/* Floating Event Icons (Layered) */ }
@@ -189,18 +184,16 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
                         repeat: Infinity,
                         ease: 'easeInOut'
                     } }
-                    className={ `absolute pointer-events-none flex items-center justify-center` }
+                    className={ `absolute pointer-events-none flex items-center justify-center ${shape.containerClass}` }
                     style={ {
                         ...shape.initial,
-                        width: shape.width,
-                        height: shape.height,
                         zIndex: shape.zIndex,
                         transformOrigin: 'center',
                         willChange: 'transform, opacity'
                     } }
                 >
                     {/* Render lucide icon component for consistency */ }
-                    { shape.Icon && React.createElement(shape.Icon, { size: Math.round(Math.min(shape.width, shape.height) * 0.6), color: shape.color, strokeWidth: '1.2px' }) }
+                    { shape.Icon && React.createElement(shape.Icon, { size: '60%', color: shape.color, strokeWidth: '1.2px' }) }
                 </motion.div>
             )) }
         </div>

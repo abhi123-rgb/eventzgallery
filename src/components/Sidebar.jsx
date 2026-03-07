@@ -99,7 +99,8 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                                 <span className="text-xl font-bold text-white tracking-tight">Menu</span>
                                 <button
                                     onClick={ () => setIsOpen(false) }
-                                    className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors"
+                                    className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white active:scale-95 transition-all"
+                                    aria-label="Close menu"
                                 >
                                     <X size={ 20 } />
                                 </button>
@@ -113,7 +114,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                                         <motion.div key={ link.sectionId }>
                                             <button
                                                 onClick={ () => scrollToSection(link.sectionId) }
-                                                className={ `group flex items-center gap-x-4 px-4 py-4 rounded-2xl transition-all duration-300 w-full ${isActive
+                                                className={ `group flex items-center gap-x-4 px-4 py-4 rounded-2xl active:scale-95 transition-all duration-300 w-full ${isActive
                                                     ? 'bg-white/15 text-white shadow-[0_0_20px_rgba(255,255,255,0.05)]'
                                                     : 'text-white/70 hover:text-white hover:bg-white/5'
                                                     }` }
