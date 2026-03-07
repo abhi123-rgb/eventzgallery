@@ -17,6 +17,7 @@ const WhatWeDo = () => {
             description: 'Comprehensive event management from concept to execution. We handle every detail to ensure your event runs seamlessly.',
             image: eventPlanning,
             icon: FaCalendarDays,
+            features: ['Theme Creation', 'Venue Selection', 'Timeline Management', 'Vendor Coordination'],
             color: 'from-blue-500 to-blue-600'
         },
         {
@@ -25,6 +26,7 @@ const WhatWeDo = () => {
             description: 'Create your dream wedding with our expert planning team. We specialize in turning your vision into a magical reality.',
             image: weddingPlanning,
             icon: FaHeart,
+            features: ['Bridal Consultation', 'Decor & Design', 'Catering Management', 'Day-of Coordination'],
             color: 'from-pink-500 to-rose-600'
         },
         {
@@ -33,6 +35,7 @@ const WhatWeDo = () => {
             description: 'Stunning decor designs that transform venues into breathtaking spaces. Our creative team brings elegance and style to every setup.',
             image: decoration,
             icon: FaLeaf,
+            features: ['Floral Arrangements', 'Lighting Design', 'Stage Setup', 'Table Settings'],
             color: 'from-emerald-500 to-teal-600'
         },
         {
@@ -41,6 +44,7 @@ const WhatWeDo = () => {
             description: 'Professional event production with state-of-the-art equipment and technical expertise. We create immersive experiences.',
             image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=500&h=400&fit=crop',
             icon: FaFilm,
+            features: ['Stage Production', 'Sound & Lighting', 'AV Equipment', 'Technical Support'],
             color: 'from-purple-500 to-indigo-600'
         },
         {
@@ -49,6 +53,7 @@ const WhatWeDo = () => {
             description: 'Capture every precious moment with our award-winning photographers and videographers using latest technology.',
             image: weddingPhoto,
             icon: FaCamera,
+            features: ['Candid Photography', 'Cinematic Videos', 'Pre-wedding Shoots', 'Drone Coverage'],
             color: 'from-orange-500 to-amber-600'
         },
         {
@@ -57,6 +62,7 @@ const WhatWeDo = () => {
             description: 'Exquisite culinary experiences with professionally trained chefs. Customized menus to delight every palate.',
             image: Catering,
             icon: FaUtensils,
+            features: ['Custom Menus', 'Live Counters', 'Bar Services', 'Dessert Stations'],
             color: 'from-red-500 to-orange-600'
         },
         {
@@ -65,6 +71,7 @@ const WhatWeDo = () => {
             description: 'Say "I do" anywhere in the world. We specialize in exotic destination weddings with flawless execution.',
             image: destinationWedding,
             icon: FaGlobe,
+            features: ['Travel Arrangements', 'Resort Booking', 'Local Coordination', 'Guest Management'],
             color: 'from-cyan-500 to-blue-600'
         },
         {
@@ -73,6 +80,7 @@ const WhatWeDo = () => {
             description: 'Stunning visual effects and pyrotechnics to elevate your event. Create unforgettable moments with cutting-edge technology.',
             image: 'https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?w=500&h=400&fit=crop',
             icon: FaWandMagic,
+            features: ['Pyrotechnics', 'Fog Machines', 'Laser Shows', 'Cold Fireworks'],
             color: 'from-violet-500 to-purple-600'
         },
         {
@@ -81,6 +89,7 @@ const WhatWeDo = () => {
             description: 'Professional corporate gatherings that impress. From conferences to product launches, we deliver excellence.',
             image: corporateImage,
             icon: FaBriefcase,
+            features: ['Conference Planning', 'Team Building', 'Product Launches', 'Trade Shows'],
             color: 'from-slate-500 to-gray-600'
         }
     ];
@@ -90,8 +99,8 @@ const WhatWeDo = () => {
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.2,
+                staggerChildren: 0.15,
+                delayChildren: 0.1,
             },
         },
     };
@@ -123,8 +132,8 @@ const WhatWeDo = () => {
     return (
         <section className="relative py-14 px-6 lg:px-8 overflow-hidden bg-[#0a0a0b]">
             {/* Background Elements */ }
-            <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl -z-0" />
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl -z-0" />
+            <div className="absolute top-0 left-0 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl z-0" />
+            <div className="absolute bottom-0 right-0 w-96 h-96 bg-purple-500/5 rounded-full blur-3xl z-0" />
 
             <div className="max-w-7xl mx-auto relative z-10">
                 {/* Section Header */ }
@@ -171,43 +180,34 @@ const WhatWeDo = () => {
                             <motion.div
                                 key={ service.id }
                                 variants={ cardVariants }
-                                whileHover={ { y: -5, transition: { duration: 0.3 } } }
-                                className="group relative"
+                                className="group relative h-full"
                             >
-                                <div className="relative h-full rounded-2xl overflow-hidden bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10">
+                                <div className="relative h-full rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 flex flex-col">
                                     {/* Image Container */ }
-                                    <div className="relative h-52 overflow-hidden bg-linear-to-br from-gray-700 to-gray-900">
+                                    <div className="relative h-56 shrink-0 overflow-hidden rounded-t-2xl">
                                         <img
                                             src={ service.image }
                                             alt={ service.title }
-                                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 opacity-80 group-hover:opacity-100"
+                                            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
                                             loading="lazy"
                                         />
-                                        <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0b] via-transparent to-transparent" />
+                                        <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0b] via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
+                                    </div>
 
-                                        {/* Icon Badge */ }
-                                        {/* <div className={ `absolute top-4 right-4 w-14 h-14 rounded-full bg-linear-to-br ${service.color} flex items-center justify-center text-white/90 shadow-lg backdrop-blur-sm` }>
-                                            <IconComponent className="text-2xl" />
-                                        </div> */}
+                                    {/* Absolute icon relative to the outer card */ }
+                                    <div className="absolute top-56 left-6 -translate-y-1/2 w-14 h-14 bg-gray-900 rounded-xl shadow-lg flex items-center justify-center z-10 text-purple-400 border border-white/10 group-hover:border-purple-500/30 transition-colors duration-300">
+                                        <IconComponent className="text-2xl" />
                                     </div>
 
                                     {/* Content Container */ }
-                                    <div className="p-5">
-                                        <h3 className="text-lg font-semibold text-white mb-3 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-indigo-400 group-hover:to-pink-500 transition-all duration-300">
+                                    <div className="px-6 pb-6 pt-10 grow flex flex-col text-left z-10">
+                                        <h3 className="text-xl font-bold text-white mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-linear-to-r group-hover:from-indigo-400 group-hover:to-pink-500 transition-all duration-300">
                                             { service.title }
                                         </h3>
 
-                                        <p className="text-sm text-gray-500 leading-relaxed font-light min-h-20">
+                                        <p className="text-sm text-gray-400 leading-relaxed font-light">
                                             { service.description }
                                         </p>
-
-                                        {/* Hover Action */ }
-                                        {/* <div className="flex items-center text-indigo-400 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                                            Learn More
-                                            <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={ 2 } d="M9 5l7 7-7 7" />
-                                            </svg>
-                                        </div> */}
                                     </div>
 
                                     {/* Gradient Border Effect */ }

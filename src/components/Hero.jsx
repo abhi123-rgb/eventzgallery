@@ -1,8 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Sparkles, ArrowRight } from 'lucide-react';
 import AnimatedBackground from './AnimatedBackground';
 
 const Hero = () => {
+    const scrollToSection = (sectionId) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -38,40 +46,46 @@ const Hero = () => {
                 animate="visible"
             >
                 <motion.div variants={ itemVariants }>
-                    <span className="inline-block py-1 px-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-indigo-200 text-xs font-semibold mb-5 tracking-wider uppercase">
-                        Excellence in Every Detail
+                    <span className="inline-flex items-center gap-2 py-2 px-5 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-purple-300 text-sm font-medium mb-8 tracking-wide">
+                        <Sparkles className="w-4 h-4 text-purple-400" />
+                        Creating Unforgettable Moments
                     </span>
                 </motion.div>
 
                 <motion.h1
                     variants={ itemVariants }
-                    className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight leading-[1.1] max-w-3xl"
+                    className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.1] max-w-4xl"
                 >
-                    Crafting <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500 animate-pulse-slow">Unforgettable</span> <br />
-                    <span className="relative">
-                        Moments, One Event at a Time.
+                    Elevate Your Events <br className="hidden sm:block" />
+                    <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500 animate-pulse-slow">
+                        Beyond Expectations
                     </span>
-                    <div className="-bottom-1 w-full h-1 bg-linear-to-r my-2 from-transparent via-indigo-500 to-transparent opacity-50" />
                 </motion.h1>
 
                 <motion.p
                     variants={ itemVariants }
-                    className="text-sm md:text-base text-gray-300 max-w-xl mx-auto mb-10 leading-relaxed font-light"
+                    className="text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
                 >
-                    Transforming your vision into reality with precision planning and creative brilliance. From grand weddings to corporate galas.
+                    From intimate gatherings to grand celebrations, we transform your vision into extraordinary experiences that leave lasting impressions.
                 </motion.p>
 
                 <motion.div
                     variants={ itemVariants }
-                    className="flex flex-col sm:flex-row items-center justify-center gap-6"
+                    className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 sm:w-auto"
                 >
-                    {/* <button className="group relative px-8 py-4 bg-indigo-600 text-white rounded-2xl font-bold transition-all shadow-2xl shadow-indigo-500/40 hover:bg-indigo-500 hover:scale-105 active:scale-95 overflow-hidden">
-                        <span className="relative z-10">Start Planning Now</span>
-                        <div className="absolute inset-0 bg-linear-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
-                    </button> */}
+                    <button
+                        onClick={ () => scrollToSection('contact') }
+                        className="group relative flex items-center justify-center gap-2 px-8 py-3.5 bg-linear-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 text-white rounded-full font-medium transition-all shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-103 active:scale-95 overflow-hidden sm:w-auto"
+                    >
+                        <span className="relative z-10">Start Planning</span>
+                        <ArrowRight className="w-5 h-5 relative z-10 group-hover:translate-x-1 transition-transform" />
+                    </button>
 
-                    <button className="px-4 py-2 text-sm bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-lg font-medium backdrop-blur-xl transition-all hover:scale-105 active:scale-95">
-                        Explore Gallery
+                    <button
+                        onClick={ () => scrollToSection('services') }
+                        className="px-8 py-3.5 bg-white/5 hover:bg-white/10 text-white border border-white/10 rounded-full font-medium backdrop-blur-xl transition-all hover:scale-103 active:scale-95 sm:w-auto"
+                    >
+                        Explore Services
                     </button>
                 </motion.div>
             </motion.div>

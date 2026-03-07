@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Menu } from 'lucide-react'
 import Sidebar from './Sidebar'
 import { motion } from 'framer-motion'
-import logo from '../assets/eventzgallery_logo.jpeg'
+import logo from '../assets/eventzgallery_logo.png'
 import { useMediaQuery } from 'react-responsive'
 
 const Header = () => {

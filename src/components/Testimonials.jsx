@@ -114,7 +114,7 @@ const Testimonials = () => {
                     variants={ titleVariants }
                 >
                     <motion.span
-                        className="inline-block py-1 px-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-indigo-200 text-xs font-semibold mb-6 tracking-wider uppercase"
+                        className="inline-block py-1 px-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-indigo-200 text-xs font-semibold mb-4 tracking-wider uppercase"
                         variants={ titleVariants }
                     >
                         Testimonials
@@ -124,8 +124,12 @@ const Testimonials = () => {
                         className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-3 tracking-tight"
                         variants={ titleVariants }
                     >
-                        What Our <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">Clients Say</span>
+                        What Our <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">Clients Says</span>
                     </motion.h2>
+
+                    <p className="text-gray-400 text-base md:text-lg max-w-lg mx-auto font-light mt-4">
+                        Here's what our clients have to say about their experience with EventzGallery:
+                    </p>
                 </motion.div>
 
                 {/* Carousel */ }

@@ -1,14 +1,16 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Users, Award, ShieldCheck, Heart } from 'lucide-react';
+import { Users, Heart, Sparkles } from 'lucide-react';
 
 const AboutUs = () => {
-    const stats = [
-        { id: 1, label: 'Years Experience', value: '10+', icon: Award },
-        { id: 2, label: 'Successful Events', value: '500+', icon: Users },
-        { id: 3, label: 'Happy Clients', value: '100%', icon: Heart },
-        { id: 4, label: 'Quality Guarantee', value: 'Certified', icon: ShieldCheck },
+    const features = [
+        { id: 1, title: 'Vision-Driven', description: 'We bring your unique vision to life with meticulous attention to detail and creative excellence.', icon: <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg> },
+        { id: 2, title: 'Expert Team', description: 'Our passionate professionals have years of experience in creating memorable events.', icon: <Users className="w-5 h-5" /> },
+        { id: 3, title: 'Full-Service Management', description: 'From concept to execution, we handle vendor coordination, logistics, and onsite management seamlessly.', icon: <Sparkles className="w-5 h-5" /> },
+        { id: 4, title: 'Client-Focused', description: 'Your satisfaction is our priority. We go above and beyond to exceed expectations.', icon: <Heart className="w-5 h-5" /> }
     ];
+
+    const leftBullets = ['Personalized Planning', 'Creative Design', 'Flawless Execution'];
 
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -76,63 +78,49 @@ const AboutUs = () => {
                             Whether it's a grand wedding, a corporate gala, or an intimate private gathering, our team handles every detail with precision and creativity. We don't just plan events; we curate experiences that linger in the hearts of your guests.
                         </motion.p>
 
-                        {/* Stats Grid */ }
-                        <motion.div
-                            className="grid grid-cols-2 md:grid-cols-4 gap-6"
+                        {/* Bullets List */ }
+                        <motion.ul
+                            className="flex flex-wrap items-center gap-x-6 gap-y-3 mt-4"
                             variants={ containerVariants }
                         >
-                            { stats.map((stat) => (
-                                <motion.div
-                                    key={ stat.id }
+                            { leftBullets.map((bullet, idx) => (
+                                <motion.li
+                                    key={ idx }
                                     variants={ itemVariants }
-                                    className="p-4 rounded-2xl bg-white/5 border border-white/10 text-center hover:border-white/20 transition-colors"
+                                    className="flex items-center text-sm font-medium text-gray-400"
                                 >
-                                    <div className="flex justify-center mb-2">
-                                        <stat.icon className="w-5 h-5 text-indigo-400" />
-                                    </div>
-                                    <div className="text-xl font-bold text-white mb-1">{ stat.value }</div>
-                                    <div className="text-xs text-gray-500 uppercase tracking-wide">{ stat.label }</div>
-                                </motion.div>
+                                    <span className="w-1.5 h-1.5 rounded-full bg-purple-600 mr-2 shrink-0"></span>
+                                    { bullet }
+                                </motion.li>
                             )) }
-                        </motion.div>
+                        </motion.ul>
                     </motion.div>
 
-                    {/* Image/Visual Component */ }
+                    {/* Features Grid (Right Side) */ }
                     <motion.div
-                        className="relative max-w-md mx-auto lg:ml-auto lg:mr-0"
-                        initial={ { opacity: 0, scale: 0.9 } }
-                        whileInView={ { opacity: 1, scale: 1 } }
+                        className="grid grid-cols-1 sm:grid-cols-2 gap-6"
+                        initial="hidden"
+                        whileInView="visible"
                         viewport={ { once: true, margin: "-100px" } }
-                        transition={ { duration: 0.8 } }
+                        variants={ containerVariants }
                     >
-                        <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl">
-                            <img
-                                src="https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=1000&fit=crop"
-                                alt="Event Management Team"
-                                className="w-full h-full object-cover opacity-90"
-                            />
-                            <div className="absolute inset-0 bg-linear-to-t from-[#0a0a0b] via-transparent to-transparent opacity-60" />
-                        </div>
-
-                        {/* Floating Card */ }
-                        <motion.div
-                            className="absolute -bottom-6 -left-6 md:-left-12 p-6 rounded-2xl bg-white/10 backdrop-blur-2xl border border-white/20 shadow-2xl max-w-xs hidden sm:block"
-                            initial={ { x: -20, opacity: 0 } }
-                            whileInView={ { x: 0, opacity: 1 } }
-                            viewport={ { once: true } }
-                            transition={ { delay: 0.5, duration: 0.6 } }
-                        >
-                            <p className="text-white text-sm font-medium italic mb-2">
-                                "Our mission is to bring your imagination to life with elegance and perfection."
-                            </p>
-                            <div className="flex items-center gap-2">
-                                <div className="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-xs font-bold text-white">EG</div>
-                                <div>
-                                    <p className="text-white text-xs font-semibold">EventzGallery Team</p>
-                                    <p className="text-gray-400 text-[10px]">Founded 2014</p>
+                        { features.map((feature) => (
+                            <motion.div
+                                key={ feature.id }
+                                variants={ itemVariants }
+                                className="p-6 rounded-2xl bg-white/5 backdrop-blur-md flex flex-col items-start border border-white/10 shadow-sm hover:shadow-purple-500/10 hover:border-white/20 transition-all duration-300"
+                            >
+                                <div className="w-11 h-11 rounded-[0.85rem] bg-[#8A2BE2] flex items-center justify-center text-white shrink-0 shadow-lg shadow-purple-500/20 mb-5">
+                                    { feature.icon }
                                 </div>
-                            </div>
-                        </motion.div>
+                                <h3 className="text-white font-bold text-lg mb-2">
+                                    { feature.title }
+                                </h3>
+                                <p className="text-gray-400 text-sm leading-relaxed font-light">
+                                    { feature.description }
+                                </p>
+                            </motion.div>
+                        )) }
                     </motion.div>
                 </div>
             </div>

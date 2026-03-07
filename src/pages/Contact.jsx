@@ -9,6 +9,8 @@ const Contact = () => {
         name: '',
         email: '',
         phone: '',
+        eventType: '',
+        eventDate: '',
         message: ''
     });
 
@@ -26,8 +28,7 @@ const Contact = () => {
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1500));
         setIsSubmitting(false);
-        setSubmitted(true);
-        setFormData({ name: '', email: '', phone: '', message: '' });
+        setFormData({ name: '', email: '', phone: '', eventType: '', eventDate: '', message: '' });
         setTimeout(() => setSubmitted(false), 5000);
     };
 
@@ -64,19 +65,26 @@ const Contact = () => {
             </div>
 
             <div className="max-w-6xl w-full relative z-10">
-                <header className="text-center mb-8">
+                <header className="text-center mb-12">
                     <motion.div
                         initial={ { opacity: 0, y: 20 } }
                         animate={ { opacity: 1, y: 0 } }
                         transition={ { duration: 0.6 } }
+                        className="flex flex-col items-center justify-center space-y-1"
                     >
-                        <h1
-                            className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-3 tracking-tight"
-                        >
-                            Get in <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">Touch</span>
+                        <span className="inline-block py-1 px-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-indigo-200 text-xs font-semibold mb-6 tracking-wider uppercase">
+                            Get In Touch
+                        </span>
+
+                        <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
+                            Let's Plan Your <br className="hidden sm:block" />
+                            <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">
+                                Perfect Event
+                            </span>
                         </h1>
-                        <p className="text-gray-400 text-base mx-2">
-                            We'd love to hear from you. Let's start something great.
+
+                        <p className="text-gray-400 text-base md:text-lg max-w-lg mx-auto font-light mt-4">
+                            Ready to start planning? Fill out the form below and our team will get back to you within 24 hours.
                         </p>
                     </motion.div>
                 </header>
@@ -139,17 +147,52 @@ const Contact = () => {
                                 </div>
                             </div>
 
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div className="space-y-4">
+                                    <label className="text-sm font-medium text-gray-400 ml-1">Phone</label>
+                                    <div className="relative group">
+                                        <Smartphone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 group-focus-within:text-blue-400 transition-colors" />
+                                        <input
+                                            type="tel"
+                                            name="phone"
+                                            value={ formData.phone }
+                                            onChange={ handleChange }
+                                            placeholder="+91 00000 00000"
+                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
+                                        />
+                                    </div>
+                                </div>
+                                <div className="space-y-4">
+                                    <label className="text-sm font-medium text-gray-400 ml-1">Event Type</label>
+                                    <div className="relative group">
+                                        <select
+                                            name="eventType"
+                                            value={ formData.eventType }
+                                            onChange={ handleChange }
+                                            className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 px-4 outline-none transition-all duration-300 appearance-none text-gray-300"
+                                        >
+                                            <option value="" className="bg-gray-900">Select Event Type</option>
+                                            <option value="wedding" className="bg-gray-900">Wedding Planning</option>
+                                            <option value="corporate" className="bg-gray-900">Corporate Event</option>
+                                            <option value="private" className="bg-gray-900">Private Party</option>
+                                            <option value="other" className="bg-gray-900">Other</option>
+                                        </select>
+                                        <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-gray-500 group-focus-within:text-blue-400">
+                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className="space-y-4">
-                                <label className="text-sm font-medium text-gray-400 ml-1">Phone</label>
+                                <label className="text-sm font-medium text-gray-400 ml-1">Event Date</label>
                                 <div className="relative group">
-                                    <Smartphone className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-500 group-focus-within:text-blue-400 transition-colors" />
                                     <input
-                                        type="tel"
-                                        name="phone"
-                                        value={ formData.phone }
+                                        type="date"
+                                        name="eventDate"
+                                        value={ formData.eventDate }
                                         onChange={ handleChange }
-                                        placeholder="+91 00000 00000"
-                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-gray-500"
+                                        className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 px-4 outline-none transition-all duration-300 text-gray-300 [&::-webkit-calendar-picker-indicator]:filter [&::-webkit-calendar-picker-indicator]:invert-[0.6] min-h-[50px] cursor-pointer"
                                     />
                                 </div>
                             </div>
