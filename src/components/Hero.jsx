@@ -35,9 +35,9 @@ const Hero = () => {
     };
 
     return (
-        <section className="relative min-h-[calc(100vh+2rem)] flex items-center justify-center overflow-hidden">
-            {/* Dynamic Background */ }
-            <AnimatedBackground opacity={ 0.6 } speed={ 1 } />
+        <section className="relative min-h-[calc(100vh+2rem)] flex items-center justify-center overflow-hidden bg-neutral-950">
+            {/* Restored Background with Static Gradients & Floating Objects */ }
+            <AnimatedBackground opacity={ 0.8 } speed={ 1 } />
 
             <motion.div
                 className="container mx-auto px-6 relative z-10 text-center flex flex-col items-center justify-center"

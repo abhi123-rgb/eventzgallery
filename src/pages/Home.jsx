@@ -24,12 +24,12 @@ const Home = () => {
                 <WhatWeDo />
             </section>
 
+            <Testimonials />
+
             {/* Contact Section */ }
             <section id="contact">
                 <Contact />
             </section>
-
-            <Testimonials />
 
             {/* FAQ Section */ }
             <section id="faq">

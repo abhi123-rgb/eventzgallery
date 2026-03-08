@@ -40,24 +40,24 @@ const FAQ = () => {
 
     const faqs = [
         {
-            question: "What types of events do you specialize in?",
-            answer: "We specialize in a wide range of premium events including luxury weddings, corporate galas, product launches, private milestone celebrations, and international destination weddings. Our team is equipped to handle events of any scale with high attention to detail."
+            question: "What services does Eventz Gallery offer?",
+            answer: "Eventz gallery specializes in a wide range of event management services, including corporate events, weddings, private parties, and conference planning. We provide full-service planning, which covers everything from venue selection to post-event clean-up."
         },
         {
-            question: "How early should I book your services?",
-            answer: "For major events like weddings or large-scale corporate conferences, we recommend booking at least 6-12 months in advance. However, for smaller private parties or events with shorter lead times, we can often accommodate requests within 2-3 months."
+            question: "How do I start planning an event with Eventz Gallery?",
+            answer: "To begin planning your event with us, simply reach out via our contact form on our website or drop us a message on whatsapp. One of our event coordinators will schedule an initial consultation to discuss your needs, budget, and vision for the event."
         },
         {
             question: "Do you offer customizable packages or fixed pricing?",
             answer: "We believe every event is unique, which is why we offer fully customizable proposals tailored to your specific needs, vision, and budget. While we have starting packages for guidance, everything is flexible to ensure you get exactly what you need."
         },
         {
-            question: "Can you handle destination weddings outside Mumbai?",
-            answer: "Absolutely! We have extensive experience in managing destination weddings across India and abroad. We handle everything from venue scouting and guest travel logistics to local vendor coordination in the destination city."
+            question: "Can you handle destination weddings outside Shimoga?",
+            answer: "Absolutely! We have extensive experience in managing destination weddings across Karnataka. We handle everything from venue scouting and guest travel logistics to local vendor coordination in the destination city."
         },
         {
-            question: "Do you handle vendor management and coordination?",
-            answer: "Yes, vendor management is one of our core services. We have a curated network of top-tier partners for catering, decor, lighting, entertainment, and more. We handle all contracts, communications, and on-site coordination so you can enjoy your event stress-free."
+            question: "Can Eventz Gallery help with event promotion?",
+            answer: "Yes, we can assist with the promotion of your event. From digital marketing strategies to traditional advertising and public relations, we can manage all aspects of event promotion to ensure your event reaches its target audience."
         },
         {
             question: "What is your typical payment and cancellation policy?",
@@ -122,7 +122,12 @@ const FAQ = () => {
                     className="mt-12 text-center"
                 >
                     <p className="text-gray-500 text-sm mb-4">Still have more doubts?</p>
-                    <button className="px-8 py-3 rounded-full bg-linear-to-r from-indigo-500 to-purple-600 text-white font-medium hover:shadow-lg hover:shadow-indigo-500/25 transition-all active:scale-95">
+                    <button
+                        onClick={ () => {
+                            document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                        } }
+                        className="px-8 py-3 rounded-full bg-linear-to-r from-indigo-500 to-purple-600 text-white font-medium hover:shadow-lg hover:shadow-indigo-500/25 transition-all active:scale-95"
+                    >
                         Ask Us Directly
                     </button>
                 </motion.div>
