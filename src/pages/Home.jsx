@@ -8,7 +8,7 @@ import FAQ from '../components/FAQ'
 
 const Home = () => {
     return (
-        <div className='min-h-screen bg-neutral-950'>
+        <main className='min-h-screen bg-neutral-950'>
             {/* Home Section */ }
             <section id="home" className='min-h-screen'>
                 <Hero />
@@ -35,7 +35,7 @@ const Home = () => {
             <section id="faq">
                 <FAQ />
             </section>
-        </div>
+        </main>
     )
 }
 

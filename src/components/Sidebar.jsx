@@ -99,7 +99,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
                                 <span className="text-xl font-bold text-white tracking-tight">Menu</span>
                                 <button
                                     onClick={ () => setIsOpen(false) }
-                                    className="p-2 rounded-full bg-white/5 hover:bg-white/10 text-white active:scale-95 transition-all"
+                                    className="p-2 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-full bg-white/5 hover:bg-white/10 text-white active:scale-95 transition-all"
                                     aria-label="Close menu"
                                 >
                                     <X size={ 20 } />
@@ -131,7 +131,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
 
                             <div className="mt-auto pt-6 border-t border-white/10">
                                 <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
-                                    <p className="text-xs text-white/40 text-center uppercase tracking-widest font-semibold">
+                                    <p className="text-xs text-white/50 text-center uppercase tracking-widest font-semibold">
                                         Eventz Gallery © 2026
                                     </p>
                                 </div>
