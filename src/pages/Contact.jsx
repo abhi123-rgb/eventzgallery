@@ -36,7 +36,7 @@ const Contact = () => {
         {
             icon: <Phone className="w-5 h-5" />,
             label: "Phone",
-            value: "+91 98765 43210"
+            value: "+91 7676417117"
         },
         {
             icon: <Mail className="w-5 h-5" />,
@@ -46,7 +46,7 @@ const Contact = () => {
         {
             icon: <MapPin className="w-5 h-5" />,
             label: "Office",
-            value: "123 Event Street, Mumbai"
+            value: "Sambhrama apartment, purdal road, gadikoppa, Shivamogga"
         }
     ];
 
@@ -93,10 +93,10 @@ const Contact = () => {
                     initial={ { opacity: 0, y: 30 } }
                     animate={ { opacity: 1, y: 0 } }
                     transition={ { duration: 0.8, delay: 0.2 } }
-                    className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-w-5xl m-auto grid grid-cols-1 lg:grid-cols-5"
+                    className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-w-5xl m-auto grid grid-cols-1 lg:grid-cols-12"
                 >
-                    {/* Left: Contact Form (3 columns on LG) */ }
-                    <div className="lg:col-span-3 p-6 md:p-8 relative">
+                    {/* Left: Contact Form (8 columns on LG) */ }
+                    <div className="lg:col-span-8 p-6 md:p-8 relative">
                         { submitted && (
                             <motion.div
                                 initial={ { opacity: 0 } }
@@ -142,7 +142,7 @@ const Contact = () => {
                                             name="email"
                                             value={ formData.email }
                                             onChange={ handleChange }
-                                            placeholder="hello@example.com"
+                                            placeholder="hello@eventzgallery.com"
                                             className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-neutral-500"
                                         />
                                     </div>
@@ -160,7 +160,7 @@ const Contact = () => {
                                             name="phone"
                                             value={ formData.phone }
                                             onChange={ handleChange }
-                                            placeholder="+91 00000 00000"
+                                            placeholder="+91 76764 17117"
                                             className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-neutral-500"
                                         />
                                     </div>
@@ -236,20 +236,20 @@ const Contact = () => {
                         </form>
                     </div>
 
-                    {/* Right: Contact Info (2 columns on LG) */ }
-                    <div className="lg:col-span-2 bg-linear-to-br from-blue-600/20 to-indigo-600/20 p-6 md:p-8 border-l border-white/10 flex flex-col justify-between">
-                        <div className="space-y-10">
+                    {/* Right: Contact Info (4 columns on LG) */ }
+                    <div className="lg:col-span-4 bg-linear-to-br from-blue-600/20 to-indigo-600/20 p-5 md:p-6 border-l border-white/10 flex flex-col justify-between">
+                        <div className="space-y-8">
                             <div>
-                                <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
-                                <div className="space-y-6">
+                                <h3 className="text-lg font-semibold mb-5">Contact Information</h3>
+                                <div className="space-y-4">
                                     { contactInfo.map((info, index) => (
-                                        <div key={ index } className="flex items-center gap-4 group">
-                                            <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
-                                                { info.icon }
+                                        <div key={ index } className="flex items-center gap-3 group">
+                                            <div className="w-8 h-8 rounded-xl bg-white/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform shrink-0">
+                                                { React.cloneElement(info.icon, { className: "w-4 h-4" }) }
                                             </div>
                                             <div>
-                                                <p className="text-sm text-gray-400">{ info.label }</p>
-                                                <p className="font-medium">{ info.value }</p>
+                                                <p className="text-xs text-gray-400">{ info.label }</p>
+                                                <p className="text-sm font-medium">{ info.value }</p>
                                             </div>
                                         </div>
                                     )) }
@@ -257,26 +257,47 @@ const Contact = () => {
                             </div>
 
                             <div>
-                                <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-widest mb-4">Follow Us</h4>
-                                <div className="flex gap-4">
+                                <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-widest mb-3">Follow Us</h4>
+                                <div className="flex gap-3">
                                     { socialLinks.map((social, index) => (
                                         <a
                                             key={ index }
                                             href={ social.href }
-                                            className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-blue-500 hover:text-white transition-all duration-300"
+                                            className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gray-300 hover:bg-blue-500 hover:text-white transition-all duration-300 shrink-0"
                                         >
-                                            { social.icon }
+                                            { React.cloneElement(social.icon, { className: "w-4 h-4" }) }
                                         </a>
                                     )) }
                                 </div>
                             </div>
                         </div>
 
-                        {/* <div className="mt-12 p-6 rounded-xl bg-white/5 border border-white/10">
-                            <p className="text-sm text-gray-400 italic">
-                                "Create memories that last a lifetime. Reach out and let's make it happen."
-                            </p>
-                        </div> */}
+                        {/* Map Section */ }
+                        <div className="mt-8 rounded-xl overflow-hidden border border-white/10 bg-white/5 h-48 sm:h-56 lg:h-48 relative group">
+                            <iframe
+                                src="https://maps.google.com/maps?q=Sambhrama%20apartment,%20purdal%20road,%20gadikoppa,%20Shivamogga&t=&z=17&ie=UTF8&iwloc=&output=embed"
+                                width="100%"
+                                height="100%"
+                                style={ { border: 0, filter: "invert(90%) hue-rotate(180deg)", touchAction: "pan-x pan-y" } }
+                                allowFullScreen=""
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="opacity-80 group-hover:opacity-100 transition-opacity duration-300"
+                                title="Location Map"
+                            ></iframe>
+
+                            {/* Directions Overlay Button */ }
+                            <a
+                                href="https://www.google.com/maps/dir//Sambhrama+apartment,+purdal+road,+gadikoppa,+Shivamogga"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="absolute bottom-3 right-3 bg-blue-600/90 hover:bg-blue-500 backdrop-blur-md text-white text-xs font-medium py-1.5 px-3 rounded-lg shadow-lg flex items-center gap-2 transition-all transform hover:scale-105 pointer-events-auto"
+                            >
+                                <MapPin className="w-3 h-3" />
+                                Get Directions
+                            </a>
+                            <div className="absolute inset-0 pointer-events-none rounded-xl ring-1 ring-inset ring-white/10" />
+                        </div>
                     </div>
                 </motion.div>
             </div>

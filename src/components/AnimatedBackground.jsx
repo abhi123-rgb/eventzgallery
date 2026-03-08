@@ -3,40 +3,6 @@ import { motion } from 'framer-motion';
 import { Wine, MicVocal, Music, Speaker, PartyPopper } from 'lucide-react'
 
 const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
-    // Existing color blobs (kept as subtle underlay)
-    const blobs = [
-        {
-            color: "#4f46e5", // Indigo
-            size: "65vmax",
-            initial: { left: "-15%", top: "-15%" },
-            animate: {
-                x: ["0%", "25%", "-10%", "0%"],
-                y: ["0%", "20%", "15%", "0%"],
-                rotate: [0, 45, -45, 0],
-            }
-        },
-        {
-            color: "#9333ea", // Purple
-            size: "55vmax",
-            initial: { right: "-10%", top: "15%" },
-            animate: {
-                x: ["0%", "-30%", "15%", "0%"],
-                y: ["0%", "25%", "-15%", "0%"],
-                rotate: [0, -60, 30, 0],
-            }
-        },
-        {
-            color: "#ec4899", // Pink
-            size: "60vmax",
-            initial: { left: "15%", bottom: "-20%" },
-            animate: {
-                x: ["0%", "20%", "-25%", "0%"],
-                y: ["0%", "-25%", "15%", "0%"],
-                rotate: [0, 90, -30, 0],
-            }
-        },
-    ];
-
     // Event-related floating icons (wine glass, gift, music note, microphone)
     const floatingShapes = [
         {
@@ -136,28 +102,11 @@ const AnimatedBackground = ({ opacity = 0.5, speed = 1 }) => {
                     } }
                 />
 
-                {/* Animated Blobs Container */ }
+                {/* Static Minimalistic Gradient Background */ }
                 <div className="absolute inset-0 overflow-hidden" style={ { opacity } }>
-                    { blobs.map((blob, index) => (
-                        <motion.div
-                            key={ `blob-${index}` }
-                            initial={ blob.initial }
-                            animate={ blob.animate }
-                            transition={ {
-                                duration: 25 / speed,
-                                repeat: Infinity,
-                                ease: "easeInOut",
-                            } }
-                            className="absolute rounded-full blur-[100px] opacity-60"
-                            style={ {
-                                ...blob.initial,
-                                backgroundColor: blob.color,
-                                width: blob.size,
-                                height: blob.size,
-                                mixBlendMode: 'screen'
-                            } }
-                        />
-                    )) }
+                    <div className="absolute top-[-20%] left-[-10%] w-125 sm:w-150 md:w-200 h-125 sm:h-150 md:h-200 rounded-full bg-purple-700/50 blur-[100px] md:blur-[120px] mix-blend-screen" />
+                    <div className="absolute bottom-[-10%] right-[-10%] w-100 sm:w-125 md:w-175 h-100 sm:h-125 md:h-175 rounded-full bg-indigo-600/40 blur-[100px] md:blur-[120px] mix-blend-screen" />
+                    <div className="absolute top-[20%] left-[30%] w-75 sm:w-100 md:w-150 h-75 sm:h-100 md:h-150 rounded-full bg-pink-600/50 blur-[100px] md:blur-[120px] mix-blend-screen" />
                 </div>
 
                 {/* Noise Texture Overlay */ }

@@ -56,7 +56,7 @@ const Footer = () => {
                             </Link>
 
                             <p className="text-neutral-400 leading-relaxed text-sm max-w-md font-light">
-                                Creating unforgettable moments and exceptional experiences for over 5 years. Let us bring your vision to life with our expertise and passion for perfection.
+                                Creating unforgettable moments and exceptional experiences for over 2 years. Let us bring your vision to life with our expertise and passion for perfection.
                             </p>
                         </div>
 

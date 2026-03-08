@@ -7,7 +7,45 @@ import weddingPlanning from "../assets/images/wedding_planning.jpg";
 import decoration from "../assets/images/decoration.jpg";
 import destinationWedding from "../assets/images/destinations.webp";
 import corporateImage from "../assets/images/corporate_image.jpeg";
-import { FaCalendarDays, FaHeart, FaLeaf, FaFilm, FaCamera, FaUtensils, FaGlobe, FaWandMagic, FaBriefcase } from 'react-icons/fa6';
+import birthdayCelebration from "../assets/images/birthday_celebration.jpg";
+import planningDesigning from "../assets/images/planning_designing.jpg";
+import { FaCalendarDays, FaHeart, FaLeaf, FaFilm, FaCamera, FaUtensils, FaGlobe, FaWandMagic, FaBriefcase, FaGift, FaPenRuler } from 'react-icons/fa6';
+
+const ImageWithPlaceholder = ({ src, alt, icon: Icon }) => {
+    const [isLoaded, setIsLoaded] = React.useState(false);
+    const [hasError, setHasError] = React.useState(false);
+
+    return (
+        <>
+            {/* Loading Skeleton */ }
+            { !isLoaded && !hasError && (
+                <div className="absolute inset-0 flex items-center justify-center bg-white/5">
+                    <div className="w-8 h-8 rounded-full border-2 border-indigo-500/30 border-t-indigo-500 animate-spin" />
+                </div>
+            ) }
+
+            {/* Error State / Fallback */ }
+            { hasError && (
+                <div className="absolute inset-0 flex flex-col items-center justify-center bg-white/5 text-gray-500">
+                    { Icon && <Icon className="text-4xl mb-3 opacity-40 group-hover:scale-110 transition-transform duration-500 group-hover:text-indigo-400" /> }
+                    <span className="text-[10px] font-semibold tracking-widest uppercase opacity-50">Preview Unavailable</span>
+                </div>
+            ) }
+
+            { !hasError && (
+                <img
+                    src={ src }
+                    alt={ alt }
+                    className={ `absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${isLoaded ? 'opacity-80 group-hover:opacity-100 group-hover:scale-110' : 'opacity-0 scale-105'
+                        }` }
+                    loading="lazy"
+                    onLoad={ () => setIsLoaded(true) }
+                    onError={ () => setHasError(true) }
+                />
+            ) }
+        </>
+    );
+};
 
 const WhatWeDo = () => {
     const services = [
@@ -91,6 +129,24 @@ const WhatWeDo = () => {
             icon: FaBriefcase,
             features: ['Conference Planning', 'Team Building', 'Product Launches', 'Trade Shows'],
             color: 'from-slate-500 to-gray-600'
+        },
+        {
+            id: 10,
+            title: 'Birthday Celebrations',
+            description: 'Make birthdays unforgettable with personalized themes, engaging activities, and spectacular setups for all ages.',
+            image: birthdayCelebration,
+            icon: FaGift,
+            features: ['Theme Decorations', 'Entertainment', 'Cake & Catering', 'Return Gifts'],
+            color: 'from-fuchsia-500 to-pink-600'
+        },
+        {
+            id: 11,
+            title: 'Planning & Designing',
+            description: 'Creative event conceptualization and meticulous planning to craft unique, tailor-made experiences.',
+            image: planningDesigning,
+            icon: FaPenRuler,
+            features: ['Concept Development', 'Budget Management', '3D Layouts', 'Vendor Sourcing'],
+            color: 'from-teal-500 to-cyan-600'
         }
     ];
 
@@ -184,14 +240,9 @@ const WhatWeDo = () => {
                             >
                                 <div className="relative h-full rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 hover:border-white/20 transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/10 flex flex-col">
                                     {/* Image Container */ }
-                                    <div className="relative h-56 shrink-0 overflow-hidden rounded-t-2xl">
-                                        <img
-                                            src={ service.image }
-                                            alt={ service.title }
-                                            className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500"
-                                            loading="lazy"
-                                        />
-                                        <div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300" />
+                                    <div className="relative h-56 shrink-0 overflow-hidden rounded-t-2xl bg-neutral-900/50">
+                                        <ImageWithPlaceholder src={ service.image } alt={ service.title } icon={ IconComponent } />
+                                        <div className="absolute inset-0 bg-linear-to-t from-neutral-950 via-transparent to-transparent opacity-80 group-hover:opacity-60 transition-opacity duration-300 pointer-events-none" />
                                     </div>
 
                                     {/* Absolute icon relative to the outer card */ }
