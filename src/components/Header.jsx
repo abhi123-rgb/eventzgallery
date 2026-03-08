@@ -62,7 +62,7 @@ const Header = () => {
                     {/* Glossy Reflection Overlay */ }
                     <div className="absolute inset-0 bg-linear-to-tr from-white/1 to-transparent pointer-none" />
 
-                    <button onClick={ () => scrollToSection('home') } className='flex items-center group relative z-10 cursor-pointer bg-transparent border-0 active:scale-95 transition-transform'>
+                    <button onClick={ () => scrollToSection('home') } aria-label="Go to Home" className='flex items-center group relative z-10 cursor-pointer bg-transparent border-0 active:scale-95 transition-transform min-h-[44px]'>
                         <div className="relative flex items-center gap-x-2">
                             <img
                                 src={ logo }
@@ -76,7 +76,7 @@ const Header = () => {
                     { isMobile ? (
                         <div className='flex items-center gap-x-2 relative z-10'>
                             <button
-                                className='flex items-center gap-x-2 relative z-10 cursor-pointer p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all'
+                                className='flex items-center justify-center min-h-[44px] min-w-[44px] relative z-10 cursor-pointer p-2 rounded-full hover:bg-white/10 active:scale-95 transition-all'
                                 onClick={ () => setIsSidebarOpen(!isSidebarOpen) }
                                 aria-label="Toggle Navigation Menu"
                             >
@@ -91,7 +91,8 @@ const Header = () => {
                                     <button
                                         key={ link.sectionId }
                                         onClick={ () => scrollToSection(link.sectionId) }
-                                        className={ `relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full active:scale-95 ${isActive
+                                        aria-label={ `Scroll to ${link.name} section` }
+                                        className={ `relative flex items-center justify-center px-4 py-2 min-h-[44px] text-sm font-medium transition-all duration-300 rounded-full active:scale-95 ${isActive
                                             ? 'text-white'
                                             : 'text-white/90 hover:text-white hover:bg-white/10'
                                             }` }
