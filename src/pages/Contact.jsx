@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, MessageSquare, User, Smartphone } from 'lucide-react';
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa'
 import { FaXTwitter } from 'react-icons/fa6'
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ const Contact = () => {
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitted, setSubmitted] = useState(false);
+    const [submitError, setSubmitError] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -25,11 +27,33 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
-        // Simulate API call
-        await new Promise(resolve => setTimeout(resolve, 1500));
-        setIsSubmitting(false);
-        setFormData({ name: '', email: '', phone: '', eventType: '', eventDate: '', message: '' });
-        setTimeout(() => setSubmitted(false), 5000);
+        setSubmitError('');
+
+        try {
+            await emailjs.send(
+                import.meta.env.VITE_EMAILJS_SERVICE_ID,
+                import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    eventType: formData.eventType,
+                    eventDate: formData.eventDate,
+                    message: formData.message,
+                },
+                import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+            );
+
+            setSubmitted(true);
+            setFormData({ name: '', email: '', phone: '', eventType: '', eventDate: '', message: '' });
+            setTimeout(() => setSubmitted(false), 5000);
+        } catch (error) {
+            console.error('Failed to send email:', error);
+            setSubmitError('Failed to send message. Please try again later or contact us directly.');
+            setTimeout(() => setSubmitError(''), 5000);
+        } finally {
+            setIsSubmitting(false);
+        }
     };
 
     const contactInfo = [
@@ -41,7 +65,7 @@ const Contact = () => {
         {
             icon: <Mail className="w-5 h-5" />,
             label: "Email",
-            value: "hello@eventzgallery.com"
+            value: "contact@eventzgallery.com"
         },
         {
             icon: <MapPin className="w-5 h-5" />,
@@ -55,6 +79,18 @@ const Contact = () => {
         { icon: <FaInstagram className="w-5 h-5" />, href: "#" },
         { icon: <FaXTwitter className="w-5 h-5" />, href: "#" }
     ];
+
+    const eventTypes = [
+        { label: 'Event Planning', value: 'Event Planning' },
+        { label: 'Destination Wedding', value: 'Destination Wedding' },
+        { label: 'Birthday', value: 'Birthday' },
+        { label: 'Photography & Videography', value: 'Photography & Videography' },
+        { label: 'Corporate Events', value: 'Corporate Events' },
+        { label: 'Decoration', value: 'Decoration' },
+        { label: 'Wedding Planning', value: 'Wedding Planning' },
+        { label: 'Catering', value: 'Catering' },
+        { label: 'Other', value: 'Other' },
+    ]
 
     return (
         <div className="bg-neutral-950 text-white py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden flex flex-col items-center">
@@ -113,6 +149,12 @@ const Contact = () => {
                             </motion.div>
                         ) }
 
+                        { submitError && (
+                            <div className="mb-4 p-4 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm text-center">
+                                { submitError }
+                            </div>
+                        ) }
+
                         <form onSubmit={ handleSubmit } className="space-y-4">
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div className="space-y-4">
@@ -142,7 +184,7 @@ const Contact = () => {
                                             name="email"
                                             value={ formData.email }
                                             onChange={ handleChange }
-                                            placeholder="hello@eventzgallery.com"
+                                            placeholder="contact@eventzgallery.com"
                                             className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 pl-12 pr-4 outline-none transition-all duration-300 placeholder:text-neutral-500"
                                         />
                                     </div>
@@ -176,10 +218,9 @@ const Contact = () => {
                                             className="w-full bg-white/10 border border-white/10 focus:border-blue-500/50 focus:ring-4 focus:ring-blue-500/10 rounded-lg py-3 px-4 outline-none transition-all duration-300 appearance-none text-neutral-300"
                                         >
                                             <option value="" className="bg-neutral-900">Select Event Type</option>
-                                            <option value="wedding" className="bg-neutral-900">Wedding Planning</option>
-                                            <option value="corporate" className="bg-neutral-900">Corporate Event</option>
-                                            <option value="private" className="bg-neutral-900">Private Party</option>
-                                            <option value="other" className="bg-neutral-900">Other</option>
+                                            { eventTypes.map((event) => (
+                                                <option value={ event.value } className='bg-neutral-900' >{ event.label }</option>
+                                            )) }
                                         </select>
                                         <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none text-neutral-500 group-focus-within:text-blue-400">
                                             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path></svg>

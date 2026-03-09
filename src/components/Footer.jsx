@@ -73,7 +73,7 @@ const Footer = () => {
                                     <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                                     <polyline points="22,6 12,13 2,6" />
                                 </svg>
-                                <span>hello@eventzgallery.com</span>
+                                <span>contact@eventzgallery.com</span>
                             </li>
                             <li className="flex items-start gap-4 text-neutral-400 text-sm font-light">
                                 <svg viewBox="0 0 24 24" fill="none" className="w-[1.15rem] h-[1.15rem] text-neutral-400 shrink-0 mt-0.5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
