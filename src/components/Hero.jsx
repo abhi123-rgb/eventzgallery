@@ -28,7 +28,7 @@ const Hero = () => {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 1.0,
+                duration: 0.8,
                 ease: [0.25, 0.1, 0.25, 1.0] // Cubic bezier for smooth, premium feel
             },
         },

@@ -71,37 +71,35 @@ const FAQ = () => {
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-indigo-500/5 rounded-full blur-[120px] z-0" />
 
             <div className="max-w-4xl mx-auto relative z-10">
-                <div className="text-center mb-16">
+                <motion.div
+                    className="text-center mb-16"
+                    initial={ { opacity: 0, y: 30 } }
+                    whileInView={ { opacity: 1, y: 0 } }
+                    viewport={ { once: true, margin: "-100px" } }
+                    transition={ { duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] } }
+                >
                     <motion.span
-                        initial={ { opacity: 0, y: 10 } }
-                        whileInView={ { opacity: 1, y: 0 } }
-                        viewport={ { once: true } }
                         className="inline-block py-1 px-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-indigo-400 text-xs font-semibold mb-6 tracking-wider uppercase"
                     >
                         Common Questions
                     </motion.span>
                     <motion.h2
-                        initial={ { opacity: 0, y: 10 } }
-                        whileInView={ { opacity: 1, y: 0 } }
-                        viewport={ { once: true } }
                         className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-6"
                     >
                         Frequently Asked <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">Queries</span>
                     </motion.h2>
                     <motion.p
-                        initial={ { opacity: 0, y: 10 } }
-                        whileInView={ { opacity: 1, y: 0 } }
-                        viewport={ { once: true } }
                         className="text-gray-400 max-w-2xl mx-auto font-light"
                     >
                         Everything you need to know about our event management process and services. Can't find what you're looking for? Feel free to reach out to us.
                     </motion.p>
-                </div>
+                </motion.div>
 
                 <motion.div
-                    initial={ { opacity: 0, scale: 0.95 } }
-                    whileInView={ { opacity: 1, scale: 1 } }
-                    viewport={ { once: true } }
+                    initial={ { opacity: 0, scale: 0.95, y: 30 } }
+                    whileInView={ { opacity: 1, scale: 1, y: 0 } }
+                    viewport={ { once: true, margin: "-100px" } }
+                    transition={ { duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] } }
                     className="bg-white/5 backdrop-blur-xl border border-white/10 rounded-3xl p-6 md:p-8"
                 >
                     { faqs.map((faq, index) => (
