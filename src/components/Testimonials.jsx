@@ -149,7 +149,7 @@ const Testimonials = () => {
                     </div>
 
                     {/* Viewport */ }
-                    <div className="overflow-hidden px-4 -mx-4">
+                    <div className="overflow-hidden px-0 -mx-4">
                         <motion.div
                             className="flex"
                             animate={ {
