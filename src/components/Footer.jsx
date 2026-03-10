@@ -41,7 +41,13 @@ const Footer = () => {
             {/* <AnimatedBackground opacity={ 0.3 } speed={ 0.5 } /> */ }
 
             <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16">
+                <motion.div
+                    initial={ { opacity: 0, y: 30 } }
+                    whileInView={ { opacity: 1, y: 0 } }
+                    viewport={ { once: true, margin: "-100px" } }
+                    transition={ { duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] } }
+                    className="grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-16"
+                >
                     {/* Brand & Contact Section */ }
                     <div className="md:col-span-12 lg:col-span-6 space-y-8">
                         <div>
@@ -118,7 +124,7 @@ const Footer = () => {
                             )) }
                         </ul>
                     </div>
-                </div>
+                </motion.div>
 
                 {/* Bottom Bar */ }
                 <div className="pt-8 border-t border-white/20 flex flex-col md:flex-row justify-between items-center gap-4">

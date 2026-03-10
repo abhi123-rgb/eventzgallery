@@ -101,13 +101,14 @@ const Contact = () => {
             </div>
 
             <div className="max-w-6xl w-full relative z-10">
-                <header className="text-center mb-12">
-                    <motion.div
-                        initial={ { opacity: 0, y: 20 } }
-                        animate={ { opacity: 1, y: 0 } }
-                        transition={ { duration: 0.6 } }
-                        className="flex flex-col items-center justify-center space-y-1"
-                    >
+                <motion.header
+                    className="text-center mb-12"
+                    initial={ { opacity: 0, y: 30 } }
+                    whileInView={ { opacity: 1, y: 0 } }
+                    viewport={ { once: true, margin: "-100px" } }
+                    transition={ { duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] } }
+                >
+                    <div className="flex flex-col items-center justify-center space-y-1">
                         <span className="inline-block py-1 px-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-indigo-200 text-xs font-semibold mb-6 tracking-wider uppercase">
                             Get In Touch
                         </span>
@@ -122,13 +123,14 @@ const Contact = () => {
                         <p className="text-gray-400 text-base md:text-lg max-w-lg mx-auto font-light mt-4">
                             Ready to start planning? Fill out the form below and our team will get back to you within 24 hours.
                         </p>
-                    </motion.div>
-                </header>
+                    </div>
+                </motion.header>
 
                 <motion.div
                     initial={ { opacity: 0, y: 30 } }
-                    animate={ { opacity: 1, y: 0 } }
-                    transition={ { duration: 0.8, delay: 0.2 } }
+                    whileInView={ { opacity: 1, y: 0 } }
+                    viewport={ { once: true, margin: "-100px" } }
+                    transition={ { duration: 0.8, delay: 0.2, ease: [0.25, 0.1, 0.25, 1.0] } }
                     className="bg-white/5 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-2xl overflow-hidden max-w-5xl m-auto grid grid-cols-1 lg:grid-cols-12"
                 >
                     {/* Left: Contact Form (8 columns on LG) */ }

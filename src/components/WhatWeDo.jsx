@@ -167,7 +167,7 @@ const WhatWeDo = () => {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.6,
+                duration: 0.8,
                 ease: [0.25, 0.1, 0.25, 1.0]
             },
         },
@@ -208,7 +208,7 @@ const WhatWeDo = () => {
                     </motion.span>
 
                     <motion.h2
-                        className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-4 tracking-tight"
+                        className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 tracking-tight"
                         variants={ titleVariants }
                     >
                         What We <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">Do</span>
