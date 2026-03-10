@@ -68,7 +68,7 @@ const AboutUs = () => {
                             className="text-gray-400 text-base md:text-lg mb-8 leading-relaxed font-light"
                             variants={ itemVariants }
                         >
-                            At EventzGallery, we believe that every event is a unique canvas. Founded with a passion for excellence, we have grown into a premier event management firm dedicated to transforming visions into breathtaking realities.
+                            At EventzGallery, we believe that every event is a unique canvas. Founded with a passion for excellence, we have grown into the <span className="text-indigo-400 font-medium">leading event planners in Shivamogga</span>, dedicated to transforming visions into breathtaking realities.
                         </motion.p>
 
                         <motion.p
