@@ -66,7 +66,7 @@ const Hero = () => {
                     variants={ itemVariants }
                     className="text-base md:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
                 >
-                    From intimate gatherings to grand celebrations, we transform your vision into extraordinary experiences that leave lasting impressions.
+                    As a premier <span className="text-indigo-300 font-medium tracking-wide">Event Management Company</span>, we transform your vision into extraordinary experiences. From intimate gatherings to grand celebrations, we ensure every detail is perfect.
                 </motion.p>
 
                 <motion.div
