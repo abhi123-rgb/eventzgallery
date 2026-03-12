@@ -13,17 +13,87 @@
   <meta name="theme-color" content="#0a0a0a" />
   <meta name="google-site-verification" content="WRmPYBRGNoq2QExdwzpQLcMMzUMs19AqjJ3iouFM29c" />
 
+  <!-- Resource Hints -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+  <!-- Critical JS (Inlined) -->
+  <script>
+    (function () {
+      const theme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.className = theme;
+      window.__initialTheme = theme;
+    })();
+  </script>
+
+  <!-- Critical CSS organized by Media Queries -->
+  <style>
+    :root {
+      --color-primary: #2563eb;
+      --color-background: #0f172a;
+      --color-text: #f8fafc;
+      background-color: var(--color-background);
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", Poppins, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+    }
+
+    #root {
+      min-height: 100vh;
+    }
+
+    /* Mobile-First Styles */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2.25rem !important;
+      }
+
+      .px-6 {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+    }
+
+    /* Tablet & Desktop Specific Critical Layout */
+    @media (min-width: 769px) {
+      .max-w-7xl {
+        max-width: 1280px;
+      }
+    }
+
+    .loading-shimmer {
+      background: linear-gradient(90deg, #1e293b 25%, #334155 50%, #1e293b 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.5s infinite;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
+    }
+  </style>
+
   <!-- Identity & SEO -->
   <link rel="apple-touch-icon" href="/src/assets/eventzgallery_logo.png" />
   <link rel="canonical" href="https://eventzgallery.in/" />
 
   <!-- Primary Meta Tags -->
-  <title>EventzGallery | Your Movement, Our Magic</title>
-  <meta name="title" content="EventzGallery | Premier Event & Wedding Planners in Shivamogga" />
+  <title>EventzGallery | Wedding Planners & Event Management Shivamogga</title>
+  <meta name="title" content="EventzGallery | Wedding Planners & Event Management Shivamogga" />
   <meta name="description"
-    content="EventzGallery is a leading event management company in Shivamogga. We specialize in premium wedding planning, corporate events, destination weddings, and birthday celebrations." />
+    content="EventzGallery is Shivamogga's premier wedding planner & event management team. We offer expert wedding planning, corporate events, decor, and catering services." />
   <meta name="keywords"
-    content="event planning shivamogga, wedding planner karnataka, corporate event management, destination wedding organizers, best decorators shivamogga,shivamogga events, catering services, eventz gallery, EventzGallery" />
+    content="event management Shivamogga, wedding planner Shivamogga, event planners Shivamogga, marriage planner Shivamogga, corporate event management Shivamogga, best wedding planners Shimoga, destination wedding planner Shivamogga, party planners Shivamogga, wedding decoration Shivamogga, EventzGallery Shivamogga, event organizing services Shimoga,EventzGallery, Events Gallery" />
   <meta name="author" content="EventzGallery" />
   <meta name="robots" content="index, follow" />
   <meta name="googlebot" content="index, follow" />
@@ -55,7 +125,7 @@
       "@context": "https://schema.org",
       "@type": "EventPlanning",
       "name": "EventzGallery",
-      "alternateName": ["Eventz Gallery", "EventzGallery Shivamogga"],
+      "alternateName": ["Eventz Gallery", "EventzGallery Shivamogga", "Event Planners Shivamogga"],
       "url": "https://eventzgallery.in/",
       "logo": "https://eventzgallery.in/src/assets/eventzgallery_logo.png",
       "image": "https://eventzgallery.in/src/assets/eventzgallery_logo.png",
@@ -69,6 +139,15 @@
         "addressRegion": "Karnataka",
         "postalCode": "577201",
         "addressCountry": "IN"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Event Planning Services",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wedding Planning Shivamogga" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate Event Management Shimoga" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Destination Weddings Karnataka" } }
+        ]
       },
       "sameAs": [
         "https://wa.me/917676417117"
