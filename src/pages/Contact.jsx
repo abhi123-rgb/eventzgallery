@@ -114,7 +114,7 @@ const Contact = () => {
                         </span>
 
                         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white tracking-tight">
-                            Let's Plan Your <br className="hidden sm:block" />
+                            Let's Plan Your <br className="block" />
                             <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">
                                 Perfect Event
                             </span>

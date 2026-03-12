@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import { Menu } from 'lucide-react'
 import Sidebar from './Sidebar'
 import { motion } from 'framer-motion'
-import logo from '../assets/eventzgallery_logo.png'
+import logo from '../assets/eventzgallery_logo.webp'
 import { useMediaQuery } from 'react-responsive'
 
 const Header = () => {
@@ -64,12 +64,15 @@ const Header = () => {
 
                     <button onClick={ () => scrollToSection('home') } aria-label="Go to Home" className='flex items-center group relative z-10 cursor-pointer bg-transparent border-0 active:scale-95 transition-transform min-h-[44px]'>
                         <div className="relative flex items-center gap-x-2">
-                            <img
-                                src={ logo }
-                                alt="EventzGallery Logo"
-                                className='w-9 h-9 rounded-full object-cover border border-white/20 group-hover:scale-105 transition-transform duration-300 shadow-sm'
-                            />
-                            <p className='text-white md:text-sm font-semibold'>EventzGallery</p>
+                            <picture className="w-9 h-9 rounded-full overflow-hidden border border-white/20 group-hover:scale-105 transition-transform duration-300 shadow-sm block">
+                                <source srcSet={ logo } type="image/webp" />
+                                <img
+                                    src={ logo.replace('.webp', '.png') }
+                                    alt="EventzGallery Logo - Premier Event Planner in Shivamogga"
+                                    className='w-full h-full object-cover'
+                                />
+                            </picture>
+                            <p className='text-white text-lg font-semibold'>EventzGallery</p>
                         </div>
                     </button>
 

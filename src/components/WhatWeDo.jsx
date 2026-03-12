@@ -1,14 +1,14 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Catering from "../assets/images/catering.jpg";
-import weddingPhoto from "../assets/images/wedding_photo.jpg";
-import eventPlanning from "../assets/images/event_planning.jpg";
-import weddingPlanning from "../assets/images/wedding_planning.jpg";
-import decoration from "../assets/images/decoration.jpg";
+import Catering from "../assets/images/catering.webp";
+import weddingPhoto from "../assets/images/wedding_photo.webp";
+import eventPlanning from "../assets/images/event_planning.webp";
+import weddingPlanning from "../assets/images/wedding_planning.webp";
+import decoration from "../assets/images/decoration.webp";
 import destinationWedding from "../assets/images/destinations.webp";
-import corporateImage from "../assets/images/corporate_image.jpeg";
-import birthdayCelebration from "../assets/images/birthday_celebration.jpg";
-import planningDesigning from "../assets/images/planning_designing.jpg";
+import corporateImage from "../assets/images/corporate_image.webp";
+import birthdayCelebration from "../assets/images/birthday_celebration.webp";
+import planningDesigning from "../assets/images/planning_designing.webp";
 import { FaCalendarDays, FaHeart, FaLeaf, FaFilm, FaCamera, FaUtensils, FaGlobe, FaWandMagic, FaBriefcase, FaGift, FaPenRuler } from 'react-icons/fa6';
 
 const ImageWithPlaceholder = ({ src, alt, icon: Icon }) => {
@@ -33,15 +33,21 @@ const ImageWithPlaceholder = ({ src, alt, icon: Icon }) => {
             ) }
 
             { !hasError && (
-                <img
-                    src={ src }
-                    alt={ alt }
-                    className={ `absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${isLoaded ? 'opacity-80 group-hover:opacity-100 group-hover:scale-110' : 'opacity-0 scale-105'
-                        }` }
-                    loading="lazy"
-                    onLoad={ () => setIsLoaded(true) }
-                    onError={ () => setHasError(true) }
-                />
+                <picture className={ `absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out ${isLoaded ? 'opacity-80 group-hover:opacity-100 group-hover:scale-110' : 'opacity-0 scale-105'
+                    }` }>
+                    <source srcSet={ src.replace('.webp', '.webp') } type="image/webp" />
+                    <img
+                        src={ src.replace('.webp', '.jpg') }
+                        alt={ alt }
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                        onLoad={ () => setIsLoaded(true) }
+                        onError={ () => {
+                            // If jpg also fails, show error
+                            setHasError(true);
+                        } }
+                    />
+                </picture>
             ) }
         </>
     );
