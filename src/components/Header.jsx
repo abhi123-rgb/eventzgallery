@@ -62,9 +62,9 @@ const Header = () => {
                     {/* Glossy Reflection Overlay */ }
                     <div className="absolute inset-0 bg-linear-to-tr from-white/1 to-transparent pointer-none" />
 
-                    <button onClick={ () => scrollToSection('home') } aria-label="Go to Home" className='flex items-center group relative z-10 cursor-pointer bg-transparent border-0 active:scale-95 transition-transform min-h-[44px]'>
+                    <button onClick={ () => scrollToSection('home') } aria-label="Go to Home" className='flex items-center relative z-10 cursor-pointer bg-transparent border-0 active:scale-95 transition-transform min-h-[44px]'>
                         <div className="relative flex items-center gap-x-2">
-                            <picture className="w-9 h-9 rounded-full overflow-hidden border border-white/20 group-hover:scale-105 transition-transform duration-300 shadow-sm block">
+                            <picture className="w-10 h-10 rounded-full overflow-hidden border border-white/20  shadow-sm block">
                                 <source srcSet={ logo } type="image/webp" />
                                 <img
                                     src={ logo.replace('.webp', '.png') }
@@ -95,7 +95,7 @@ const Header = () => {
                                         key={ link.sectionId }
                                         onClick={ () => scrollToSection(link.sectionId) }
                                         aria-label={ `Scroll to ${link.name} section` }
-                                        className={ `relative flex items-center justify-center px-4 py-2 min-h-[44px] text-sm font-medium transition-all duration-300 rounded-full active:scale-95 ${isActive
+                                        className={ `relative flex items-center justify-center min-h-[40px] leading-0 px-4 py-2 text-sm font-medium transition-all duration-300 rounded-full active:scale-95 ${isActive
                                             ? 'text-white'
                                             : 'text-white/90 hover:text-white hover:bg-white/10'
                                             }` }

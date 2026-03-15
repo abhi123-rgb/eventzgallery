@@ -109,7 +109,7 @@ const Contact = () => {
                     transition={ { duration: 0.8, ease: [0.25, 0.1, 0.25, 1.0] } }
                 >
                     <div className="flex flex-col items-center justify-center space-y-1">
-                        <span className="inline-block py-1 px-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-indigo-200 text-xs font-semibold mb-6 tracking-wider uppercase">
+                        <span className="inline-block py-1 px-4 rounded-full bg-white/5 backdrop-blur-xl border border-white/10 text-indigo-200 text-xs font-semibold mb-4 tracking-wider uppercase">
                             Get In Touch
                         </span>
 
@@ -120,7 +120,7 @@ const Contact = () => {
                             </span>
                         </h1>
 
-                        <p className="text-gray-400 text-base md:text-lg max-w-lg mx-auto font-light mt-4">
+                        <p className="text-gray-400 max-w-lg mx-auto font-light mt-4">
                             Ready to start planning? Fill out the form below and our team will get back to you within 24 hours.
                         </p>
                     </div>
