@@ -119,7 +119,7 @@ const Testimonials = () => {
                         What Our <span className="text-transparent bg-clip-text bg-linear-to-r from-indigo-400 via-purple-400 to-pink-500">Clients Say</span>
                     </h2>
 
-                    <p className="text-gray-400 text-base md:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+                    <p className="text-gray-400 max-w-2xl mx-auto font-light leading-relaxed">
                         Discover the experiences of those who have trusted us to bring their most important celebrations to life.
                     </p>
                 </motion.div>

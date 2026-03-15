@@ -221,7 +221,7 @@ const WhatWeDo = () => {
                     </motion.h2>
 
                     <motion.p
-                        className="text-sm text-gray-300 max-w-2xl mx-auto leading-relaxed font-light"
+                        className="text-gray-300 max-w-2xl mx-auto leading-relaxed font-light"
                         variants={ titleVariants }
                     >
                         We offer comprehensive event services designed to bring your vision to life. From intimate gatherings to grand celebrations, our expert team delivers excellence in every detail.

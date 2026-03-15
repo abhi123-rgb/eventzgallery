@@ -64,7 +64,7 @@ const Footer = () => {
                             </div>
                         </Link>
 
-                        <p className="text-neutral-500 leading-relaxed text-[15px] font-light mb-8">
+                        <p className="text-neutral-500 leading-relaxed text-sm font-light mb-8">
                             Creating unforgettable moments and exceptional experiences for over 2 years. Let us bring your vision to life with our expertise and passion for perfection.
                         </p>
 
