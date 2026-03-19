@@ -2,7 +2,7 @@ import React from 'react'
 import Hero from '../components/Hero'
 import WhatWeDo from '../components/WhatWeDo'
 import Testimonials from '../components/Testimonials'
-import Contact from './Contact'
+import Contact from '../components/Contact'
 import AboutUs from '../components/AboutUs'
 import FAQ from '../components/FAQ'
 

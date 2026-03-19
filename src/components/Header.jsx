@@ -33,12 +33,14 @@ const Header = () => {
                 }
             }
 
-            setActiveSection(currentSection)
+            if (currentSection !== activeSection) {
+                setActiveSection(currentSection)
+            }
         }
 
         window.addEventListener('scroll', handleScroll)
         return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
+    }, [activeSection])
 
     const navLinks = [
         { name: 'Home', sectionId: 'home' },
@@ -64,7 +66,7 @@ const Header = () => {
 
                     <button onClick={ () => scrollToSection('home') } aria-label="Go to Home" className='flex items-center relative z-10 cursor-pointer bg-transparent border-0 active:scale-95 transition-transform min-h-[44px]'>
                         <div className="relative flex items-center gap-x-2">
-                            <picture className="w-10 h-10 rounded-full overflow-hidden border border-white/20  shadow-sm block">
+                            <picture className="w-10 h-10 rounded-full overflow-hidden border border-white/20 shadow-sm block">
                                 <source srcSet={ logo } type="image/webp" />
                                 <img
                                     src={ logo.replace('.webp', '.png') }
