@@ -56,15 +56,15 @@ const Footer = () => {
                 className="w-12 h-12 rounded-2xl border border-white/10 group-hover:scale-105 transition-transform duration-300"
               />
               <div className="flex flex-col">
-                <h1 className="text-2xl font-semibold text-white tracking-tight leading-none">
+                <h1 className="text-xl md:text-2xl font-semibold text-white tracking-tight leading-none">
                   EventzGallery
                 </h1>
-                <span className="mt-1 text-neutral-500 text-xs py-0.5 rounded-xs w-fit">
+                <span className="mt-1 text-neutral-500 text-sm py-0.5 rounded-xs w-fit">
                   Your movement, our magic
                 </span>
               </div>
             </div>
-            <p className="text-neutral-500 leading-relaxed font-light text-sm max-w-sm">
+            <p className="text-neutral-500 leading-relaxed font-light text-base max-w-sm">
               Creating unforgettable moments and exceptional experiences for
               over 2 years. Let us bring your vision to life with our expertise
               and passion for perfection.
